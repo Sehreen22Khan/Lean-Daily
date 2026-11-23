@@ -10,8 +10,9 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="Lean Daily">
 <link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png" sizes="180x180">
 <title>Lean Daily</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -360,6 +361,7 @@ textarea{min-height:120px;font-family:ui-monospace,Menlo,monospace;font-size:12p
 .vresult{display:flex;align-items:center;gap:10px;width:100%;text-align:left;padding:12px 12px 12px 14px;border-radius:16px;background:var(--brand-soft)}
 .vresult[hidden]{display:none}
 .vresult p{flex:1;font-weight:500}
+.vr-acts{display:flex;flex-direction:column;gap:6px;align-items:stretch}
 .vresult .vr-ic{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--brand);color:var(--brand-ink);flex:0 0 auto}
 .vresult .vr-ic svg{width:17px;height:17px}
 .vresult.bad{background:var(--accent-soft)}
@@ -662,25 +664,33 @@ const FOODS = [
   {name:"Paratha", unit:"1 piece", kcal:260, keys:["paratha","parathas","parantha","paranthas","prata"]},
   {name:"Rice, cooked", unit:"1 cup", kcal:205, keys:["rice","chawal","white rice","brown rice","boiled rice","plain rice"]},
   {name:"Daal", unit:"1 cup", kcal:230, keys:["daal","dal","dhal","lentils","lentil","lentil curry","daal curry"]},
-  {name:"Grilled chicken breast", unit:"100 g", kcal:165, grams:100, keys:["grilled chicken","chicken breast","chicken breasts","chicken tikka","tandoori chicken"]},
   {name:"Chicken curry", unit:"1 cup", kcal:300, keys:["chicken curry","chicken salan","chicken karahi","chicken handi","curry chicken","chicken korma","chicken qorma"]},
   {name:"Biryani", unit:"1 cup", kcal:350, keys:["biryani","biriyani","biriani","chicken biryani","mutton biryani","beef biryani","pulao","pilau"]},
-  {name:"Grilled fish", unit:"100 g", kcal:140, grams:100, keys:["grilled fish","fish","baked fish","salmon","fish fillet"]},
+  {name:"Chai with milk & sugar", unit:"1 cup", kcal:90, keys:["chai","tea","teas","milk tea","doodh patti","karak","karak chai"]},
+  {name:"Cereal", unit:"1 cup, dry", kcal:110, cereal:true, keys:["cereal","cereals","cornflakes","corn flakes","special k","kelloggs","kellogs","kellogg","kelloggs special k","kelloggs cornflakes","kelloggs corn flakes","bran flakes","cheerios","rice krispies","froot loops","fruit loops","chocos","coco pops","frosties"]},
+  {name:"Milk", unit:"1 glass or cup", kcal:150, milk:true, keys:["milk","doodh"]},
   {name:"Plain yogurt / dahi", unit:"1 cup", kcal:150, keys:["yogurt","yoghurt","plain yogurt","greek yogurt","dahi","curd","raita"]},
+  {name:"Banana", unit:"1 medium", kcal:105, keys:["banana","bananas"]},
+  {name:"Fried egg", unit:"1 egg", kcal:90, keys:["fried egg","fried eggs"]},
+  {name:"Omelette", unit:"2 eggs", kcal:190, keys:["omelette","omelettes","omelet","omelets","omlet","omlette"]},
   {name:"Oats with milk", unit:"1 bowl", kcal:250, keys:["oats","oatmeal","porridge","oats with milk"]},
+  {name:"Muesli", unit:"½ cup", kcal:170, cereal:true, keys:["muesli","museli","musli"]},
+  {name:"Granola", unit:"½ cup", kcal:250, cereal:true, keys:["granola"]},
+  {name:"Weetabix", unit:"2 biscuits", kcal:130, per:2, cereal:true, keys:["weetabix","weetabixes"]},
+  {name:"Bread", unit:"1 slice", kcal:80, keys:["bread","toast","toasts"]},
+  {name:"Butter", unit:"1 tsp", kcal:35, keys:["butter","makhan","makkhan"]},
+  {name:"Honey / jam", unit:"1 tbsp", kcal:60, keys:["honey","jam","jelly","shehad","marmalade"]},
+  {name:"Grilled chicken breast", unit:"100 g", kcal:165, grams:100, keys:["grilled chicken","chicken breast","chicken breasts","chicken tikka","tandoori chicken"]},
+  {name:"Grilled fish", unit:"100 g", kcal:140, grams:100, keys:["grilled fish","fish","baked fish","salmon","fish fillet"]},
+  {name:"Vegetable sabzi", unit:"1 cup", kcal:150, keys:["sabzi","sabji","vegetables","vegetable curry","veg curry","mixed vegetables","bhindi","aloo gobi"]},
   {name:"Mixed salad", unit:"1 bowl", kcal:50, keys:["salad","mixed salad","green salad","kachumber","cucumber"]},
   {name:"Apple", unit:"1 medium", kcal:95, keys:["apple","apples"]},
-  {name:"Banana", unit:"1 medium", kcal:105, keys:["banana","bananas"]},
   {name:"Orange", unit:"1 medium", kcal:60, keys:["orange","oranges","kinnow","kinnows","mandarin"]},
   {name:"Mango", unit:"1 cup", kcal:100, keys:["mango","mangoes","mangos"]},
   {name:"Dates", unit:"3 small", kcal:60, per:3, keys:["dates","date","khajoor","khajur","khajoors"]},
   {name:"Almonds", unit:"10 nuts", kcal:70, per:10, keys:["almonds","almond","badam"]},
-  {name:"Chai with milk & sugar", unit:"1 cup", kcal:90, keys:["chai","tea","teas","milk tea","doodh patti","karak","karak chai"]},
   {name:"Black tea / coffee", unit:"1 cup", kcal:5, keys:["black tea","green tea","herbal tea","black coffee","coffee","coffees","americano"]},
-  {name:"Milk", unit:"1 glass", kcal:150, keys:["milk","doodh"]},
   {name:"Sweet lassi", unit:"1 glass", kcal:220, keys:["lassi","sweet lassi","mango lassi"]},
-  {name:"Bread", unit:"1 slice", kcal:80, keys:["bread","toast","toasts"]},
-  {name:"Vegetable sabzi", unit:"1 cup", kcal:150, keys:["sabzi","sabji","vegetables","vegetable curry","veg curry","mixed vegetables","bhindi","aloo gobi"]},
   {name:"Pizza", unit:"1 slice", kcal:285, keys:["pizza","pizzas","pizza slice"]},
   {name:"Samosa", unit:"1 piece", kcal:260, keys:["samosa","samosas"]},
   {name:"Soft drink", unit:"330 ml can", kcal:140, keys:["soft drink","soft drinks","soda","coke","cola","pepsi","sprite","fanta","7up","fizzy drink"]}
@@ -1097,7 +1107,8 @@ function renderFood(){
       <div class="card-head"><h3>Quick add</h3><button class="btn ghost sm" data-action="addFood">+ Custom food</button></div>
       <label class="search">${I.search}<input id="foodSearch" type="search" placeholder="Search foods" autocomplete="off" aria-label="Search foods" value="${esc(q)}"></label>
       ${S.myFoods.length ? `<span class="eyebrow">Your foods</span><div class="foods">${S.myFoods.map((f,i)=>`<button class="food mine" data-action="myFood" data-i="${i}" data-name="${esc(f.name.toLowerCase())}"><b>${esc(f.name)}</b><span class="num">${f.kcal} kcal</span></button>`).join("")}</div><span class="eyebrow">Common foods</span>` : ""}
-      <div class="foods">${FOODS.map((f,i)=>`<button class="food" data-action="quickFood" data-i="${i}" data-name="${esc((f.name+" "+f.keys.join(" ")).toLowerCase())}"><b>${f.name}</b><span class="num">${f.unit} · ${f.kcal} kcal</span></button>`).join("")}</div>
+      <div class="foods">${FOODS.map((f,i)=>`<button class="food" data-action="quickFood" data-i="${i}" ${i >= 12 ? 'data-more="1"' : ""} data-name="${esc((f.name+" "+f.keys.join(" ")).toLowerCase())}"><b>${f.name}</b><span class="num">${f.unit} · ${f.kcal} kcal</span></button>`).join("")}</div>
+      <button class="btn ghost sm" id="moreFoods" data-action="moreFoods">${foodsOpen ? "Show fewer" : `Show all ${FOODS.length} foods`}</button>
       <p class="empty" id="noFood" hidden>No match. Use “+ Custom food” to add it with its calories.</p>
       <p class="small muted">Calories are typical home-portion estimates.</p>
     </div>
@@ -1120,11 +1131,13 @@ function renderFood(){
     </div>`;
   filterFoods(q);
 }
+let foodsOpen = false;
 function filterFoods(q){
   q = (q||"").trim().toLowerCase();
   let shown = 0;
-  $$("#quickAdd .food").forEach(b => { const ok = !q || b.dataset.name.includes(q); b.hidden = !ok; if(ok) shown++; });
+  $$("#quickAdd .food").forEach(b => { const ok = q ? b.dataset.name.includes(q) : (foodsOpen || !b.dataset.more); b.hidden = !ok; if(ok) shown++; });
   const nf = $("#noFood"); if(nf) nf.hidden = shown > 0;
+  const mb = $("#moreFoods"); if(mb) mb.hidden = !!q;
 }
 
 function weightChart(){
@@ -1203,6 +1216,7 @@ function renderProgress(){
     <div class="card">
       <h3>Use it like an app</h3>
       <p class="small muted"><b>iPhone:</b> open this page in Safari, tap Share, then Add to Home Screen.<br><b>Android:</b> open in Chrome, tap the ⋮ menu, then Add to Home screen or Install app.</p>
+      <p class="small muted">Icon blank or a screenshot? Your phone saved it before the app had an icon. Tap Settings › Copy backup, remove the old icon, add it again from Safari, then Restore backup.</p>
       <button class="btn soft" data-action="siriGuide">${I.sparkle}Siri &amp; voice commands</button>
     </div>`;
 }
@@ -1517,7 +1531,7 @@ function siriSheet(){
 }
 const HELP = [
   ["Water", ["Add a glass of water", "I drank 3 glasses", "Remove a glass of water"]],
-  ["Food", ["I had 2 rotis and daal", "Add half a cup of rice", "Chicken shawarma 450 calories", "Remove the last food"]],
+  ["Food", ["I had 2 rotis and daal", "Kellogg's Special K with a cup of milk", "Add half a cup of rice", "Chicken shawarma 450 calories", "Remove the last food"]],
   ["Reps", ["Add 20 squats", "Switch to push-ups", "One more", "Set the target to 30", "Reset the counter"]],
   ["Workouts", ["Start today's workout", "Start HIIT", "During a workout: pause, resume, skip, finish", "I walked for 30 minutes"]],
   ["Weight", ["My weight is 78.5", "I weigh 172 pounds", "Set my goal weight to 65"]],
@@ -1573,7 +1587,7 @@ function showVoiceResult(res){
   const box = $("#vResult"); if(!box) return;
   box.hidden = false;
   box.className = "vresult " + (res.fail ? "bad" : res.info ? "info" : "ok");
-  box.innerHTML = `<span class="vr-ic">${res.fail ? I.alert : res.info ? I.sparkle : I.check}</span><p>${esc(res.msg)}</p>${res.undoable ? `<button type="button" class="btn sm" data-action="undoLast">Undo</button>` : ""}`;
+  box.innerHTML = `<span class="vr-ic">${res.fail ? I.alert : res.info ? I.sparkle : I.check}</span><p>${esc(res.msg)}</p><span class="vr-acts">${res.unknown ? `<button type="button" class="btn sm primary" data-action="addUnknown" data-v="${esc(res.unknown)}">Add “${esc(res.unknown)}”</button>` : ""}${res.undoable ? `<button type="button" class="btn sm" data-action="undoLast">Undo</button>` : ""}</span>`;
 }
 function stopRec(){
   clearTimeout(recTimer);
@@ -2022,23 +2036,58 @@ function foodIndex(){
   foodIdx = arr.map(x => ({...x, parts:x.k.split(" ")})); foodIdxKey = key;
   return foodIdx;
 }
+// Words around food that are never a food themselves, and serving words to trim off unknown foods.
+const NOT_FOOD = new Set("sugar sugars salt pepper ice lemon masala spices spice and with without no plus then also or so but at in on from to after before during near by morning evening night afternoon yesterday tonight home office work house like little bit lot lots really very good nice delicious tasty healthy yummy fresh homemade some just only about around roughly approximately approx i ive im me my we our your his her their had have having ate eat eaten eating drank drink drinking log logged add added track record for breakfast lunch dinner supper snack snacks brunch iftar suhoor sehri today a an the of was is it that this these those calories calorie kcal kcals cal cals".split(" "));
+const SERVING_WORDS = new Set("cup cups bowl bowls plate plates piece pieces slice slices glass glasses serving servings portion portions spoon spoons spoonful tbsp tsp teaspoon teaspoons tablespoon tablespoons handful g gm gms gram grams ml of can cans bottle bottles packet packets mug mugs scoop scoops pc pcs".split(" "));
+const SIZE_WORDS = new Set("small big large medium half full extra more".split(" "));   // trimmed only before a serving word: "a big plate of", but not "big mac"
+const DESCRIBING = new Set("spicy hot cold warm sweet crispy fried grilled boiled baked roasted plain whole brown white black green mixed chopped sliced creamy fresh homemade leftover leftovers".split(" "));
+const FOOD_START = /^(a|an|some|and|with|plus|also|then|ate|had|have|eat|eating|having|log|add|drank|drink|\d+(\.\d+)?)$/;
+function unknownFoods(tk, used){
+  const out = [];
+  let i = 0;
+  while(i < tk.length){
+    if(used[i] || NOT_FOOD.has(tk[i]) || /^\d+(\.\d+)?$/.test(tk[i])){ i++; continue; }
+    let j = i; while(j < tk.length && !used[j] && !NOT_FOOD.has(tk[j]) && !/^\d+(\.\d+)?$/.test(tk[j])) j++;
+    let a = i, z = j;
+    while(a < z && (SERVING_WORDS.has(tk[a]) || (SIZE_WORDS.has(tk[a]) && SERVING_WORDS.has(tk[a+1] || "")))) a++;
+    while(z > a && SERVING_WORDS.has(tk[z-1])) z--;
+    const words = tk.slice(a, z);
+    let b = i - 1; while(b >= 0 && (tk[b] === "of" || SERVING_WORDS.has(tk[b]) || SIZE_WORDS.has(tk[b]))) b--;
+    const lonelyWords = words.every(w => SIZE_WORDS.has(w) || DESCRIBING.has(w));   // "large" in "a large pizza"
+    // only report it if it sits where a food would ("a …", "and …", "had …", "2 …"), not "at my friend's house"
+    if(!lonelyWords && words.some(w => w.length >= 3) && (b < 0 || FOOD_START.test(tk[b]))) out.push(words.join(" "));
+    i = j;
+  }
+  return out;
+}
 function findFoods(t){
-  const tk = t.split(" "), used = new Array(tk.length).fill(false), found = [];
+  const tk = t.split(" "), used = new Array(tk.length).fill(false), hits = [];
   for(const {parts, food} of foodIndex()){
     for(let i = 0; i + parts.length <= tk.length; i++){
       let ok = true;
       for(let j = 0; j < parts.length; j++) if(tk[i+j] !== parts[j] || used[i+j]){ ok = false; break; }
       if(!ok) continue;
       for(let j = 0; j < parts.length; j++) used[i+j] = true;
-      if(/^(with|no|without)$/.test(tk[i-1] || "")) continue;   // "oats with milk", "tea without sugar"
-      const q = qtyBefore(tk, i);
-      let servings = q.n;
-      if(q.grams) servings = food.grams ? q.n / food.grams : 1;
-      else if(food.per && q.explicit) servings = q.n / food.per;
-      found.push({food, servings, at:i});
+      hits.push({food, at:i, end:i + parts.length, q:qtyBefore(tk, i), before:tk[i-1] || ""});
     }
   }
-  return found.sort((a, b) => a.at - b.at);
+  hits.sort((a, b) => a.at - b.at);
+  const found = [];
+  for(const h of hits){
+    const prev = found[found.length - 1];
+    if(prev && prev.food === h.food && prev.end === h.at){ prev.end = h.end; continue; }   // "kelloggs cornflakes" is one cereal
+    if(h.before === "no" || h.before === "without") continue;                               // "tea without sugar"
+    if(h.before === "with" && h.food.milk){
+      if(!(prev && prev.food.cereal)) continue;     // milk in tea or coffee: part of the drink
+      if(!h.q.explicit) h.q = {n:0.5, explicit:true};   // cereal with milk: about half a cup
+    }
+    let servings = h.q.n;
+    if(h.q.grams) servings = h.food.grams ? h.q.n / h.food.grams : 1;
+    else if(h.food.per && h.q.explicit) servings = h.q.n / h.food.per;
+    found.push({...h, servings});
+  }
+  found.unknown = unknownFoods(tk, used);
+  return found;
 }
 function addFoodItem({food, servings}){
   const s = Math.min(20, Math.max(0.25, Math.round(servings * 4) / 4));
@@ -2070,12 +2119,12 @@ function foodCmd(t){
     return {msg:`Logged ${nice}, ${kcal} kcal. ${leftLine()}`, tab:"food"};
   }
   if(items.length){
-    const added = items.map(addFoodItem);
+    const added = items.map(addFoodItem), unk = items.unknown;
     renderFood(); renderToday(); renderHeader();
-    return {msg:`Logged ${listJoin(added)}. ${leftLine()}`, tab:"food"};
+    return {msg:`Logged ${listJoin(added)}. ${leftLine()}${unk.length ? ` I don't know ${listJoin(unk.map(u => `“${u}”`))} yet.` : ""}`, tab:"food", unknown: unk[0]};
   }
   if(/\b(ate|eat|eaten|eating|had|have|having|log|add|drank|drink|snacked)\b/.test(t)){
-    const name = cleanFoodName(t);
+    const name = items.unknown[0] || cleanFoodName(t);
     if(name && !/\d/.test(name) && name.split(" ").length <= 5)
       return {msg:`I don't know the calories in ${name}. Add them here, or say “${name} 300 calories”.`, soft:true, then:() => customFoodSheet(cap(name))};
   }
@@ -2109,7 +2158,7 @@ function presentResult(res, src){
     showVoiceResult(res);
     setVStatus(res.fail ? "Hmm" : "Done", res.fail ? "warn" : "");
     clearTimeout(autoCloseT);
-    if(!res.fail && !res.info && !res.soft) autoCloseT = setTimeout(() => {
+    if(!res.fail && !res.info && !res.soft && !res.unknown) autoCloseT = setTimeout(() => {
       if(sheetKind !== "voice") return;
       closeSheet(); toast(res.msg, {undo: !!(res.undoable && lastUndo && lastUndo.rev === REV)});
     }, 1800);
@@ -2158,6 +2207,8 @@ document.addEventListener("click", e => {
     case "myFood": { const f = S.myFoods[+el.dataset.i]; if(!f) break; withUndo(() => addFood(f.name, f.kcal, true)); renderFood(); renderToday(); renderHeader(); toast(`Added ${f.name} · ${leftLine()}`, {undo:true}); break; }
     case "delFood": { const d = day(), i = +el.dataset.i, f = d.food[i]; if(!f) break; withUndo(() => { d.food.splice(i,1); save(); }); renderFood(); renderToday(); renderHeader(); toast(`Removed ${f.name}`, {undo:true}); break; }
     case "addFood": customFoodSheet(); break;
+    case "moreFoods": foodsOpen = !foodsOpen; el.textContent = foodsOpen ? "Show fewer" : `Show all ${FOODS.length} foods`; filterFoods(($("#foodSearch")||{}).value); break;
+    case "addUnknown": customFoodSheet(cap(el.dataset.v || "")); break;
     case "editProfile": profileSheet(); break;
     case "pickSex": $("#pSex").value = el.dataset.v; el.parentElement.querySelectorAll("button").forEach(b=>b.setAttribute("aria-pressed", b===el)); break;
     case "theme": S.settings.theme = el.dataset.v; applyTheme(); save(); el.parentElement.querySelectorAll("button").forEach(b=>b.setAttribute("aria-pressed", b===el)); break;
