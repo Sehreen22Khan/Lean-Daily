@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#f2f5f3">
+<title>Code Maker</title>
+<link rel="icon" href="icons/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png" sizes="180x180">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+<style>
+/* Lean Daily code maker: for the app owner only. Makes signed Lean Daily Pro unlock codes. */
+:root{
+  --bg:#f2f5f3; --surface:#fff; --ink:#10201a; --muted:#5d6d66; --line:#dce5df;
+  --brand:#0e7a5f; --brand-ink:#fff; --brand-soft:#dcefe6; --accent:#d94f25; --accent-soft:#fde5da; --amber:#a85d08; --amber-soft:#fcebd3;
+  --shadow:0 1px 2px rgba(16,32,26,.05),0 6px 22px -10px rgba(16,32,26,.16);
+  --font-display:"Barlow Condensed","Arial Narrow",system-ui,sans-serif;
+  --font-body:"DM Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0a110f; --surface:#131d19; --ink:#e6efeb; --muted:#93a59d; --line:#23322c;
+    --brand:#3cc79f; --brand-ink:#04241a; --brand-soft:#15382d; --accent:#ff8a66; --accent-soft:#3c2219; --amber:#f0ad4e; --amber-soft:#3a2a12;
+    --shadow:0 0 0 1px #23322c; color-scheme:dark;
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.45}
+button,input,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+.wrap{max-width:560px;margin:0 auto;padding:calc(14px + env(safe-area-inset-top)) 16px calc(30px + env(safe-area-inset-bottom));display:flex;flex-direction:column;gap:14px}
+.top{display:flex;align-items:center;gap:12px;padding:4px 2px}
+.logo{width:42px;height:42px;border-radius:13px;background:linear-gradient(150deg,#13a07b,#0a5a46);display:grid;place-items:center;color:#fff;flex:0 0 auto}
+.logo svg{width:24px;height:24px}
+h1,h2{margin:0;font-family:var(--font-display);font-weight:700;line-height:1.05}
+h1{font-size:30px} h2{font-size:24px}
+p{margin:0}
+.muted{color:var(--muted)} .small{font-size:13px}
+.card{background:var(--surface);border-radius:22px;padding:16px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:12px}
+.card[hidden],[hidden]{display:none!important}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:10px 16px;border-radius:14px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font-weight:600;text-decoration:none;text-align:center}
+.btn.primary{background:var(--brand);color:var(--brand-ink);border-color:transparent}
+.btn.wa{background:#25d366;color:#05361a;border-color:transparent}
+.btn.danger{color:var(--accent);border-color:var(--accent);background:transparent}
+.btn.ghost{background:transparent;border-color:transparent;color:var(--brand)}
+.btn.sm{min-height:36px;padding:6px 12px;font-size:14px;border-radius:11px}
+.btn.block{width:100%}
+.btn:disabled{opacity:.6}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+label{display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--muted);font-weight:500}
+input,textarea{width:100%;border:1px solid var(--line);background:var(--bg);border-radius:12px;padding:10px 12px;min-height:46px;color:var(--ink)}
+textarea{min-height:120px;font-size:13px;line-height:1.4;resize:vertical}
+form{display:flex;flex-direction:column;gap:12px}
+.seg{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;background:var(--bg);border-radius:12px;padding:4px;gap:4px}
+.seg button{border:none;background:transparent;border-radius:9px;padding:8px;font-weight:600;font-size:14px;min-height:38px}
+.seg button[aria-pressed="true"]{background:var(--surface);box-shadow:0 1px 3px rgba(0,0,0,.14)}
+.step{display:flex;flex-direction:column;gap:8px;padding-top:12px;border-top:1px solid var(--line);font-size:14.5px}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px}
+code.key{display:block;background:var(--bg);border-radius:12px;padding:10px 12px;overflow-wrap:anywhere}
+.status{border-radius:14px;padding:12px 14px;font-size:14px;background:var(--bg)}
+.status.ok{background:var(--brand-soft)}
+.status.warn{background:var(--amber-soft)}
+.err{color:var(--accent);font-size:13px}
+details summary{cursor:pointer;color:var(--brand);font-weight:600;padding:4px 0}
+details[open]{display:flex;flex-direction:column;gap:10px}
+.cust{display:flex;align-items:center;gap:10px;padding:11px 0;border-top:1px solid var(--line)}
+.cust:first-child{border-top:none}
+.cust .grow{flex:1;min-width:0;display:flex;flex-direction:column}
+.cust .actions{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.chip{display:inline-block;font-size:11.5px;font-weight:700;padding:2px 8px;border-radius:999px;background:var(--brand-soft);color:var(--brand);margin-left:6px;vertical-align:1px}
+.chip.soon{background:var(--amber-soft);color:var(--amber)}
+.chip.ended{background:var(--accent-soft);color:var(--accent)}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:14px;font-weight:600;font-size:14px;opacity:0;transition:opacity .2s;pointer-events:none;max-width:90vw}
+.toast.show{opacity:1}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <header class="top">
+    <span class="logo" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 7v10M3 9.5v5M18 7v10M21 9.5v5M6 12h12"/></svg></span>
+    <div><h1>Code maker</h1><p class="muted small">Lean Daily Pro unlock codes. Just for you, the app owner.</p></div>
+  </header>
+
+  <section class="card" id="setupCard" hidden>
+    <h2>Set up once</h2>
+    <p>Codes are signed with a secret key that's made on, and stays on, this phone. The app only accepts codes signed with your key, so nobody can make their own.</p>
+    <button class="btn primary block" id="createKey">Create my key</button>
+    <details>
+      <summary>I already have a key backup</summary>
+      <textarea id="restoreIn" placeholder="Paste your secret key backup. It starts with LDS1." autocapitalize="off" spellcheck="false"></textarea>
+      <button class="btn block" id="restoreBtn">Restore my key</button>
+      <p class="err" id="restoreErr" hidden></p>
+    </details>
+  </section>
+
+  <section class="card" id="keyCard" hidden>
+    <h2>Your keys</h2>
+    <div class="status" id="trustStatus">Checking the app…</div>
+    <div class="step">
+      <b>1. Back up your secret key</b>
+      <span>Save it somewhere private, like a password manager or a note only you can see. Safari can clear this page's data if you don't open it for a while, and without the backup you can't make codes. Anyone who has it can make codes, so never share it.</span>
+      <button class="btn block" id="copySecret">Copy secret key</button>
+    </div>
+    <div class="step">
+      <b>2. Put your public key in the app</b>
+      <span>Send it to Claude, or paste it into <code>CONFIG › pro › keys</code> in index.html. It's safe to share.</span>
+      <code class="key" id="pubKey"></code>
+      <button class="btn block" id="copyPub">Copy public key</button>
+    </div>
+  </section>
+
+  <section class="card" id="makeCard" hidden>
+    <h2>Make a code</h2>
+    <form id="makeForm" autocomplete="off">
+      <label>Customer name<input id="mName" required maxlength="40" placeholder="Shown in their app, e.g. Ayesha K"></label>
+      <label>Their WhatsApp number (optional)<input id="mPhone" inputmode="tel" placeholder="With country code, e.g. 15551234567"></label>
+      <div class="seg" id="mPlan" role="group" aria-label="How long">
+        <button type="button" data-v="month" aria-pressed="true">1 month</button>
+        <button type="button" data-v="year" aria-pressed="false">1 year</button>
+        <button type="button" data-v="days" aria-pressed="false">Days</button>
+      </div>
+      <label id="mDaysWrap" hidden>Number of days<input id="mDays" type="number" inputmode="numeric" min="1" max="3650" value="7"></label>
+      <label>Starts on<input id="mStart" type="date" required></label>
+      <p class="muted small" id="mUntil"></p>
+      <button class="btn primary block" type="submit" id="makeBtn">Make code</button>
+    </form>
+  </section>
+
+  <section class="card" id="resultCard" hidden>
+    <h2 id="rTitle"></h2>
+    <p class="muted small">Send this message. The link unlocks Pro in one tap, and the code is there for the iPhone Home Screen app.</p>
+    <textarea id="rMsg" readonly></textarea>
+    <a class="btn wa block" id="rWa" target="_blank" rel="noopener">Send on WhatsApp</a>
+    <div class="grid2"><button class="btn" id="rCopyMsg">Copy message</button><button class="btn" id="rCopyCode">Copy code only</button></div>
+    <a class="btn ghost block" id="rTest" target="_blank" rel="noopener">Test the link</a>
+  </section>
+
+  <section class="card" id="custCard" hidden>
+    <h2>Customers</h2>
+    <p class="muted small" id="custSummary"></p>
+    <div id="custList"></div>
+  </section>
+
+  <section class="card" id="dangerCard" hidden>
+    <details>
+      <summary>Use a different key</summary>
+      <p class="small">Only do this if you've lost your secret key or it got shared. Codes made with the old key keep working while its public key stays in the app.</p>
+      <button class="btn danger block" id="forgetKey">Remove my key from this phone</button>
+    </details>
+  </section>
+</main>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+const STORE = "leanDaily.codeMaker";
+const APP_URL = location.origin + location.pathname.replace(/codes\.html$/, "");
+const $ = s => document.querySelector(s);
+let M = {};
+try{ M = JSON.parse(localStorage.getItem(STORE)) || {}; }catch(e){ M = {}; }
+M.customers = M.customers || [];
+const save = () => { try{ localStorage.setItem(STORE, JSON.stringify(M)); }catch(e){} };
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+let toastT;
+function toast(msg){ const t = $("#toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove("show"), 2400); }
+async function copy(text, msg){
+  try{ await navigator.clipboard.writeText(text); toast(msg); }
+  catch(e){ const ta = document.createElement("textarea"); ta.value = text; ta.style.cssText = "position:fixed;opacity:0"; document.body.appendChild(ta); ta.select(); try{ document.execCommand("copy"); toast(msg); }catch(_){ toast("Couldn't copy. Select it and copy by hand."); } ta.remove(); }
+}
+
+const b64u = bytes => { let s = ""; new Uint8Array(bytes).forEach(b => { s += String.fromCharCode(b); }); return btoa(s).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, ""); };
+const fromB64u = s => { s = String(s).replace(/-/g, "+").replace(/_/g, "/"); while(s.length % 4) s += "="; return Uint8Array.from(atob(s), c => c.charCodeAt(0)); };
+const keyOf = d => `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
+const today = () => keyOf(new Date());
+const nice = k => new Date(k + "T12:00").toLocaleDateString(undefined, {day:"numeric", month:"short", year:"numeric"});
+const addDays = (k, n) => { const d = new Date(k + "T12:00"); d.setDate(d.getDate() + n); return keyOf(d); };
+function addMonths(k, n){ const d = new Date(k + "T12:00"), day = d.getDate(); d.setMonth(d.getMonth() + n); if(d.getDate() !== day) d.setDate(0); return keyOf(d); }
+const daysBetween = (a, b) => Math.round((new Date(b + "T12:00") - new Date(a + "T12:00")) / 864e5);
+
+async function createKey(){
+  const kp = await crypto.subtle.generateKey({name:"ECDSA", namedCurve:"P-256"}, true, ["sign", "verify"]);
+  const jwk = await crypto.subtle.exportKey("jwk", kp.privateKey);
+  M.secret = {kty:"EC", crv:"P-256", d:jwk.d, x:jwk.x, y:jwk.y};
+  M.pub = b64u(await crypto.subtle.exportKey("raw", kp.publicKey));
+  save(); render();
+  toast("Key created. Back it up next.");
+}
+const secretBackup = () => "LDS1." + b64u(new TextEncoder().encode(JSON.stringify(M.secret)));
+async function restoreKey(text){
+  const s = text.replace(/\s+/g, "");
+  if(!s.startsWith("LDS1.")) throw new Error("That isn't a key backup. It should start with LDS1.");
+  const jwk = JSON.parse(new TextDecoder().decode(fromB64u(s.slice(5))));
+  await crypto.subtle.importKey("jwk", {kty:"EC", crv:"P-256", d:jwk.d, x:jwk.x, y:jwk.y, ext:true}, {name:"ECDSA", namedCurve:"P-256"}, true, ["sign"]);
+  const raw = new Uint8Array(65); raw[0] = 4; raw.set(fromB64u(jwk.x), 1); raw.set(fromB64u(jwk.y), 33);
+  M.secret = {kty:"EC", crv:"P-256", d:jwk.d, x:jwk.x, y:jwk.y}; M.pub = b64u(raw);
+  save(); render(); toast("Key restored.");
+}
+async function makeCode(name, plan, start, until){
+  const key = await crypto.subtle.importKey("jwk", {...M.secret, ext:true}, {name:"ECDSA", namedCurve:"P-256"}, false, ["sign"]);
+  const details = b64u(new TextEncoder().encode(JSON.stringify({n:name, p:plan, s:start, u:until, i:Math.random().toString(36).slice(2, 8)})));
+  const head = "LDP1." + details;
+  const sig = await crypto.subtle.sign({name:"ECDSA", hash:"SHA-256"}, key, new TextEncoder().encode(head));
+  return head + "." + b64u(sig);
+}
+
+let plan = "month";
+function untilFor(start){
+  if(plan === "year") return addMonths(start, 12);
+  if(plan === "days") return addDays(start, Math.max(1, Math.min(3650, +$("#mDays").value || 1)) - 1);
+  return addMonths(start, 1);
+}
+function updateUntil(){ const s = $("#mStart").value; $("#mUntil").textContent = s ? `Pro will work until ${nice(untilFor(s))}.` : ""; }
+function setPlan(v){ plan = v; document.querySelectorAll("#mPlan button").forEach(b => b.setAttribute("aria-pressed", b.dataset.v === v)); $("#mDaysWrap").hidden = v !== "days"; updateUntil(); }
+
+function message(name, until, link, code){
+  return `Hi ${name}! Here's your Lean Daily Pro code. It works until ${nice(until)}.\n\nTap to unlock:\n${link}\n\nUsing Lean Daily from your iPhone Home Screen? Copy the code below, then open the app, tap the gear for Settings, tap the Pro button and paste it.\n\n${code}`;
+}
+const waLink = (phone, text) => `https://wa.me/${String(phone || "").replace(/\D/g, "")}?text=${encodeURIComponent(text)}`;
+
+function renderCustomers(){
+  const list = [...M.customers].sort((a, b) => a.until < b.until ? -1 : 1);
+  $("#custCard").hidden = !list.length;
+  const t = today();
+  const soon = list.filter(c => c.until >= t && daysBetween(t, c.until) <= 7).length, active = list.filter(c => c.until >= t).length;
+  $("#custSummary").textContent = `${active} active${soon ? `, ${soon} ending within a week` : ""}. Message people before their Pro ends so they renew.`;
+  $("#custList").innerHTML = list.map((c, i) => {
+    const left = daysBetween(t, c.until);
+    const chip = left < 0 ? `<span class="chip ended">ended</span>` : left <= 7 ? `<span class="chip soon">${left === 0 ? "ends today" : `${left} day${left === 1 ? "" : "s"} left`}</span>` : `<span class="chip">active</span>`;
+    const remind = `Hi ${c.name}! Your Lean Daily Pro ${left < 0 ? "ended" : "ends"} on ${nice(c.until)}. Want to keep your meal plan and protein tracking? Reply here and I'll send your renewal.`;
+    return `<div class="cust"><div class="grow"><b>${esc(c.name)}${chip}</b><span class="muted small">${c.plan === "year" ? "Yearly" : c.plan === "month" ? "Monthly" : "Custom"} · until ${nice(c.until)}</span></div>
+      <div class="actions">${c.phone && left <= 7 ? `<a class="btn sm" href="${esc(waLink(c.phone, remind))}" target="_blank" rel="noopener">Remind</a>` : ""}<button class="btn sm" data-renew="${esc(c.name)}">Renew</button></div></div>`;
+  }).join("");
+}
+async function checkTrust(){
+  const el = $("#trustStatus");
+  try{
+    const html = await (await fetch(APP_URL, {cache:"no-cache"})).text();
+    if(html.includes(M.pub)){ el.className = "status ok"; el.textContent = "The app trusts this key. Codes you make here will work."; }
+    else { el.className = "status warn"; el.textContent = "The app doesn't know this key yet. Do step 2, then codes will work."; }
+  }catch(e){ el.className = "status"; el.textContent = "Couldn't reach the app to check your key."; }
+}
+function render(){
+  const has = !!(M.secret && M.pub);
+  $("#setupCard").hidden = has;
+  ["#keyCard", "#makeCard", "#dangerCard"].forEach(s => { $(s).hidden = !has; });
+  if(has){ $("#pubKey").textContent = M.pub; checkTrust(); }
+  renderCustomers();
+}
+
+$("#createKey").onclick = async e => { e.target.disabled = true; try{ await createKey(); }catch(err){ toast("Couldn't create a key in this browser. Try Safari or Chrome."); } e.target.disabled = false; };
+$("#restoreBtn").onclick = async () => { const er = $("#restoreErr"); er.hidden = true; try{ await restoreKey($("#restoreIn").value); }catch(err){ er.textContent = err.message.startsWith("That") ? err.message : "That key backup doesn't work. Check you copied all of it."; er.hidden = false; } };
+$("#copySecret").onclick = () => { if(confirm("Your secret key lets anyone make Pro codes. Copy it only to save it somewhere private.")) copy(secretBackup(), "Secret key copied. Save it somewhere private."); };
+$("#copyPub").onclick = () => copy(M.pub, "Public key copied");
+$("#forgetKey").onclick = () => { if(confirm("Remove your key from this phone? Make sure you have its backup first.")){ delete M.secret; delete M.pub; save(); render(); } };
+$("#mPlan").onclick = e => { const b = e.target.closest("button"); if(b) setPlan(b.dataset.v); };
+$("#mStart").oninput = updateUntil; $("#mDays").oninput = updateUntil;
+$("#custList").onclick = e => {
+  const b = e.target.closest("[data-renew]"); if(!b) return;
+  const c = M.customers.find(x => x.name === b.dataset.renew); if(!c) return;
+  $("#mName").value = c.name; $("#mPhone").value = c.phone || "";
+  setPlan(c.plan === "year" ? "year" : "month");
+  $("#mStart").value = c.until >= today() ? addDays(c.until, 1) : today(); updateUntil();
+  $("#makeCard").scrollIntoView({behavior:"smooth", block:"start"});
+};
+let last = null;
+$("#makeForm").onsubmit = async e => {
+  e.preventDefault();
+  const name = $("#mName").value.trim(), phone = $("#mPhone").value.replace(/\D/g, ""), start = $("#mStart").value || today();
+  if(!name) return;
+  const until = untilFor(start), btn = $("#makeBtn"); btn.disabled = true;
+  try{
+    const code = await makeCode(name, plan, start, until), link = `${APP_URL}?pro=${code}`;
+    last = {name, code, link, msg:message(name, until, link, code)};
+    $("#rTitle").textContent = `Code for ${name}, until ${nice(until)}`;
+    $("#rMsg").value = last.msg;
+    $("#rWa").href = waLink(phone, last.msg); $("#rWa").textContent = phone ? `Send to ${name} on WhatsApp` : "Send on WhatsApp";
+    $("#rTest").href = link;
+    $("#resultCard").hidden = false;
+    const i = M.customers.findIndex(c => c.name.toLowerCase() === name.toLowerCase());
+    const rec = {name, phone: phone || (i >= 0 ? M.customers[i].phone : ""), plan, start, until, made:today()};
+    if(i >= 0) M.customers[i] = rec; else M.customers.push(rec);
+    save(); renderCustomers();
+    $("#resultCard").scrollIntoView({behavior:"smooth", block:"start"});
+  }catch(err){ toast("Couldn't make the code. Restore your key and try again."); }
+  btn.disabled = false;
+};
+$("#rCopyMsg").onclick = () => last && copy(last.msg, "Message copied");
+$("#rCopyCode").onclick = () => last && copy(last.code, "Code copied");
+
+$("#mStart").value = today();
+setPlan("month");
+render();
+</script>
+</body>
+</html>

@@ -416,6 +416,56 @@ textarea{min-height:120px;font-family:ui-monospace,Menlo,monospace;font-size:12p
 .tlink{border:none;background:transparent;color:var(--toast-link);font-weight:700;padding:6px 8px;border-radius:10px;min-height:36px}
 .tlink[hidden]{display:none}
 .note{font-size:12px;color:var(--muted);padding:6px 4px 16px}
+/* Lean Daily Pro */
+.probadge{display:inline-flex;align-items:center;font-size:10.5px;font-weight:800;letter-spacing:1px;padding:3px 8px;border-radius:999px;background:linear-gradient(135deg,#f7cd5d,#e8873a);color:#3a1d00;white-space:nowrap}
+.ic-pro{background:linear-gradient(135deg,#fde9b8,#f9c77d);color:#8a4b00}
+.proteaser{background:linear-gradient(165deg,var(--surface) 55%,var(--amber-soft))}
+.planpeek{border-radius:14px;background:var(--bg);padding:10px 12px;display:flex;flex-direction:column;gap:7px}
+.planpeek .pp{display:grid;grid-template-columns:76px 1fr;gap:8px;font-size:13px;align-items:baseline}
+.planpeek .blur{filter:blur(3.5px);user-select:none;-webkit-user-select:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pro-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.pro-list li{display:flex;gap:10px;align-items:flex-start;font-size:14.5px}
+.pro-list svg{width:18px;height:18px;color:var(--brand);margin-top:2px}
+.prices{display:grid;grid-template-columns:repeat(auto-fit,minmax(0,1fr));gap:10px;margin-top:4px}
+.priceopt{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:2px;padding:12px 14px;border-radius:16px;border:2px solid var(--line);background:var(--surface);text-align:left;color:var(--ink)}
+.priceopt b{font-size:15px}
+.priceopt span{font-size:14px;color:var(--muted)}
+.priceopt i{position:absolute;top:-10px;right:10px;font-style:normal;font-size:11px;font-weight:800;padding:2px 8px;border-radius:999px;background:var(--brand);color:var(--brand-ink)}
+.priceopt[aria-pressed="true"]{border-color:var(--brand);background:var(--brand-soft)}
+.btn.wabtn{background:#25d366;color:#05361a;border-color:transparent}
+.codeform{display:flex;gap:8px;align-items:flex-end}
+.codeform label{flex:1;min-width:0}
+.codeerr{color:var(--accent)}
+.codeerr[hidden]{display:none}
+.callout.good{display:flex;gap:10px;align-items:flex-start;background:var(--brand-soft)}
+.callout.good svg{width:18px;height:18px;color:var(--brand);flex:0 0 auto;margin-top:1px}
+.prorow{display:flex;align-items:center;gap:12px;margin-top:8px;padding:12px;border-radius:14px;background:var(--amber-soft)}
+.prorow>svg{width:22px;height:22px;color:var(--amber)}
+.prorow .grow{display:flex;flex-direction:column}
+.mrow{display:flex;flex-direction:column;gap:5px}
+.ink{color:var(--ink)}
+.bar.protein>i{background:var(--accent)}
+.bar.carbs>i{background:var(--amber)}
+.bar.fat>i{background:var(--water)}
+.macro-line{font-size:11.5px;color:var(--muted)}
+.hero-protein{display:flex;flex-direction:column;gap:6px;padding-top:2px}
+.hero-protein .lab{font-size:11px;text-transform:uppercase;letter-spacing:1.3px;opacity:.8;font-weight:700}
+.hero-protein b{font-family:var(--font-display);font-size:20px}
+.hero-protein .hbar{height:8px;border-radius:99px;background:rgba(255,255,255,.18);overflow:hidden}
+.hero-protein .hbar i{display:block;height:100%;background:#ffd27a;border-radius:99px}
+.mealcard{border:1px solid var(--line);border-radius:16px;padding:12px 14px;display:flex;flex-direction:column;gap:8px}
+.mealcard.done{background:var(--brand-soft);border-color:transparent}
+.mealcard ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:4px;font-size:14.5px}
+.mealcard li{display:flex;justify-content:space-between;gap:10px}
+.mealcard li span:last-child{white-space:nowrap;text-align:right}
+.chips.daychips{margin:0;padding:2px 0 4px}
+.planday{display:flex;flex-direction:column;gap:2px}
+.planday b{font-family:var(--font-display);font-size:32px;line-height:1}
+.grocery h3{font-size:12px;letter-spacing:1.3px;text-transform:uppercase;color:var(--muted);margin:4px 0 2px}
+.gitem{display:flex;align-items:center;gap:12px;padding:10px 0;border-top:1px solid var(--line);cursor:pointer}
+.gitem input{width:22px;height:22px;accent-color:var(--brand);flex:0 0 auto;margin:0}
+.gitem b{font-weight:600;white-space:nowrap}
+.gitem.got span{text-decoration:line-through;color:var(--muted)}
 /* "update available" card */
 .update{position:fixed;left:50%;top:calc(10px + env(safe-area-inset-top));z-index:70;width:min(calc(100vw - 24px),520px);display:flex;align-items:center;gap:12px;padding:12px 10px 12px 14px;border-radius:20px;background:var(--surface);color:var(--ink);box-shadow:var(--shadow-lg),0 0 0 1px var(--line);transform:translate(-50%,calc(-100% - 30px));transition:transform .4s cubic-bezier(.2,.9,.25,1.1)}
 .update[hidden]{display:none}
@@ -483,7 +533,18 @@ const CONFIG = {
   whatsappChannel: "",   // e.g. https://whatsapp.com/channel/XXXXXXXXXXXX
   whatsappGroup: "",     // e.g. https://chat.whatsapp.com/XXXXXXXXXXXX
   waterGoal: 8,          // glasses per day
-  exerciseGoalMin: 30    // active minutes per day
+  exerciseGoalMin: 30,   // active minutes per day
+
+  // Lean Daily Pro: paid meal plans and protein tracking. See README, "Selling Pro".
+  pro: {
+    currency: "$",       // e.g. "$", "£", "€", "Rs ", "₹"
+    monthly: 3.99,       // price per month (0 hides it)
+    yearly: 29.99,       // price per year (0 hides it)
+    cardMonthlyUrl: "",  // card payment link for monthly (Stripe, Lemon Squeezy, Gumroad...)
+    cardYearlyUrl: "",   // card payment link for yearly
+    whatsapp: "",        // your WhatsApp number, digits only with country code, e.g. 15551234567
+    keys: []             // your public key from codes.html, in quotes
+  }
 };
 /* ==================================== */
 
@@ -515,6 +576,8 @@ const I = {
   plus: sv('<path d="M12 5v14M5 12h14"/>', 'fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"'),
   minus: sv('<path d="M5 12h14"/>', 'fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"'),
   send: sv('<path d="M5 12h14M13 6l6 6-6 6"/>', 'fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"'),
+  cart: sv('<circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2.5 3.5h2.7l2.4 11.3a1.5 1.5 0 0 0 1.5 1.2h8.6a1.5 1.5 0 0 0 1.5-1.1L21 7H6"/>'),
+  swap: sv('<path d="M7 7h13l-4-4M17 17H4l4 4"/>'),
   wa: sv('<path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4a.5.5 0 0 0 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.7-1.2 2.2 2.2 0 0 0 .2-1.2c-.1-.1-.3-.2-.5-.3z"/>', 'fill="currentColor"')
 };
 
@@ -530,10 +593,12 @@ const DEFAULT_STATE = () => ({
     {id:"lunges",name:"Lunges",target:20,count:0}
   ],
   active:"squats",
-  settings:{vibrate:true,sound:true,theme:"system",voiceReplies:true,coach:true,hintDismissed:false},
+  settings:{vibrate:true,sound:true,theme:"system",voiceReplies:true,coach:true,hintDismissed:false,diet:"all"},
   days:{},
   weights:[],
-  myFoods:[]
+  myFoods:[],
+  pro:null,       // {code} for Lean Daily Pro
+  mealPlan:null   // Pro: the 7-day plan
 });
 
 let S, REV = 0;
@@ -658,42 +723,48 @@ const TIPS = [
   "20 minutes every day beats 2 hours once a week."
 ];
 // keys = words people say for this food. per = how many pieces one serving holds. grams = serving size in grams.
+// p, c, f = grams of protein, carbs and fat in one serving (typical estimates).
 const FOODS = [
-  {name:"Boiled egg", unit:"1 egg", kcal:78, keys:["boiled egg","boiled eggs","egg","eggs","anda","ande","anday"]},
-  {name:"Chapati / roti", unit:"1 medium", kcal:120, keys:["chapati","chapatis","chapatti","chapattis","roti","rotis","rotti","phulka","phulkas"]},
-  {name:"Paratha", unit:"1 piece", kcal:260, keys:["paratha","parathas","parantha","paranthas","prata"]},
-  {name:"Rice, cooked", unit:"1 cup", kcal:205, keys:["rice","chawal","white rice","brown rice","boiled rice","plain rice"]},
-  {name:"Daal", unit:"1 cup", kcal:230, keys:["daal","dal","dhal","lentils","lentil","lentil curry","daal curry"]},
-  {name:"Chicken curry", unit:"1 cup", kcal:300, keys:["chicken curry","chicken salan","chicken karahi","chicken handi","curry chicken","chicken korma","chicken qorma"]},
-  {name:"Biryani", unit:"1 cup", kcal:350, keys:["biryani","biriyani","biriani","chicken biryani","mutton biryani","beef biryani","pulao","pilau"]},
-  {name:"Chai with milk & sugar", unit:"1 cup", kcal:90, keys:["chai","tea","teas","milk tea","doodh patti","karak","karak chai"]},
-  {name:"Cereal", unit:"1 cup, dry", kcal:110, cereal:true, keys:["cereal","cereals","cornflakes","corn flakes","special k","kelloggs","kellogs","kellogg","kelloggs special k","kelloggs cornflakes","kelloggs corn flakes","bran flakes","cheerios","rice krispies","froot loops","fruit loops","chocos","coco pops","frosties"]},
-  {name:"Milk", unit:"1 glass or cup", kcal:150, milk:true, keys:["milk","doodh"]},
-  {name:"Plain yogurt / dahi", unit:"1 cup", kcal:150, keys:["yogurt","yoghurt","plain yogurt","greek yogurt","dahi","curd","raita"]},
-  {name:"Banana", unit:"1 medium", kcal:105, keys:["banana","bananas"]},
-  {name:"Fried egg", unit:"1 egg", kcal:90, keys:["fried egg","fried eggs"]},
-  {name:"Omelette", unit:"2 eggs", kcal:190, keys:["omelette","omelettes","omelet","omelets","omlet","omlette"]},
-  {name:"Oats with milk", unit:"1 bowl", kcal:250, keys:["oats","oatmeal","porridge","oats with milk"]},
-  {name:"Muesli", unit:"½ cup", kcal:170, cereal:true, keys:["muesli","museli","musli"]},
-  {name:"Granola", unit:"½ cup", kcal:250, cereal:true, keys:["granola"]},
-  {name:"Weetabix", unit:"2 biscuits", kcal:130, per:2, cereal:true, keys:["weetabix","weetabixes"]},
-  {name:"Bread", unit:"1 slice", kcal:80, keys:["bread","toast","toasts"]},
-  {name:"Butter", unit:"1 tsp", kcal:35, keys:["butter","makhan","makkhan"]},
-  {name:"Honey / jam", unit:"1 tbsp", kcal:60, keys:["honey","jam","jelly","shehad","marmalade"]},
-  {name:"Grilled chicken breast", unit:"100 g", kcal:165, grams:100, keys:["grilled chicken","chicken breast","chicken breasts","chicken tikka","tandoori chicken"]},
-  {name:"Grilled fish", unit:"100 g", kcal:140, grams:100, keys:["grilled fish","fish","baked fish","salmon","fish fillet"]},
-  {name:"Vegetable sabzi", unit:"1 cup", kcal:150, keys:["sabzi","sabji","vegetables","vegetable curry","veg curry","mixed vegetables","bhindi","aloo gobi"]},
-  {name:"Mixed salad", unit:"1 bowl", kcal:50, keys:["salad","mixed salad","green salad","kachumber","cucumber"]},
-  {name:"Apple", unit:"1 medium", kcal:95, keys:["apple","apples"]},
-  {name:"Orange", unit:"1 medium", kcal:60, keys:["orange","oranges","kinnow","kinnows","mandarin"]},
-  {name:"Mango", unit:"1 cup", kcal:100, keys:["mango","mangoes","mangos"]},
-  {name:"Dates", unit:"3 small", kcal:60, per:3, keys:["dates","date","khajoor","khajur","khajoors"]},
-  {name:"Almonds", unit:"10 nuts", kcal:70, per:10, keys:["almonds","almond","badam"]},
-  {name:"Black tea / coffee", unit:"1 cup", kcal:5, keys:["black tea","green tea","herbal tea","black coffee","coffee","coffees","americano"]},
-  {name:"Sweet lassi", unit:"1 glass", kcal:220, keys:["lassi","sweet lassi","mango lassi"]},
-  {name:"Pizza", unit:"1 slice", kcal:285, keys:["pizza","pizzas","pizza slice"]},
-  {name:"Samosa", unit:"1 piece", kcal:260, keys:["samosa","samosas"]},
-  {name:"Soft drink", unit:"330 ml can", kcal:140, keys:["soft drink","soft drinks","soda","coke","cola","pepsi","sprite","fanta","7up","fizzy drink"]}
+  {id:"egg", name:"Boiled egg", unit:"1 egg", kcal:78, p:6, c:1, f:5, keys:["boiled egg","boiled eggs","egg","eggs","anda","ande","anday"]},
+  {id:"roti", name:"Chapati / roti", unit:"1 roti", kcal:120, p:3, c:18, f:4, keys:["chapati","chapatis","chapatti","chapattis","roti","rotis","rotti","phulka","phulkas"]},
+  {id:"paratha", name:"Paratha", unit:"1 paratha", kcal:260, p:5, c:32, f:12, keys:["paratha","parathas","parantha","paranthas","prata"]},
+  {id:"rice", name:"Rice (cooked)", unit:"1 cup", kcal:205, p:4, c:45, f:0, keys:["rice","chawal","white rice","brown rice","boiled rice","plain rice"]},
+  {id:"daal", name:"Daal", unit:"1 cup", kcal:230, p:12, c:30, f:7, keys:["daal","dal","dhal","lentils","lentil","lentil curry","daal curry"]},
+  {id:"chickencurry", name:"Chicken curry", unit:"1 cup", kcal:300, p:25, c:8, f:19, keys:["chicken curry","chicken salan","chicken karahi","chicken handi","curry chicken","chicken korma","chicken qorma"]},
+  {id:"biryani", name:"Biryani", unit:"1 cup", kcal:350, p:15, c:45, f:12, keys:["biryani","biriyani","biriani","chicken biryani","mutton biryani","beef biryani","pulao","pilau"]},
+  {id:"chai", name:"Chai with milk & sugar", unit:"1 cup", kcal:90, p:3, c:13, f:3, keys:["chai","tea","teas","milk tea","doodh patti","karak","karak chai"]},
+  {id:"cereal", name:"Cereal", unit:"1 cup, dry", kcal:110, p:3, c:24, f:0.5, cereal:true, keys:["cereal","cereals","cornflakes","corn flakes","special k","kelloggs","kellogs","kellogg","kelloggs special k","kelloggs cornflakes","kelloggs corn flakes","bran flakes","cheerios","rice krispies","froot loops","fruit loops","chocos","coco pops","frosties"]},
+  {id:"milk", name:"Milk", unit:"1 cup", kcal:150, p:8, c:12, f:8, milk:true, keys:["milk","doodh"]},
+  {id:"yogurt", name:"Plain yogurt / dahi", unit:"1 cup", kcal:150, p:9, c:11, f:8, keys:["yogurt","yoghurt","plain yogurt","dahi","curd","raita"]},
+  {id:"banana", name:"Banana", unit:"1 medium", kcal:105, p:1, c:27, f:0, keys:["banana","bananas"]},
+  {id:"chainosugar", name:"Chai, no sugar", unit:"1 cup", kcal:60, p:3, c:6, f:3, keys:["chai without sugar","tea without sugar","chai no sugar","tea no sugar","sugar free chai","sugar free tea","sugarless tea","sugarless chai","pheeki chai"]},
+  {id:"chana", name:"Chana (chickpea curry)", unit:"1 cup", kcal:270, p:12, c:40, f:7, keys:["chana","chanay","channay","chole","cholay","chickpeas","chickpea curry","chana masala"]},
+  {id:"palakpaneer", name:"Palak paneer", unit:"1 cup", kcal:300, p:14, c:12, f:22, keys:["palak paneer","saag paneer","paneer","paneer curry","matar paneer"]},
+  {id:"greekyogurt", name:"Greek yogurt", unit:"150 g", grams:150, kcal:130, p:15, c:6, f:5, keys:["greek yogurt","greek yoghurt"]},
+  {id:"fruitchaat", name:"Fruit chaat", unit:"1 cup", kcal:120, p:1, c:30, f:0, keys:["fruit chaat","fruit chat","fruit salad"]},
+  {id:"friedegg", name:"Fried egg", unit:"1 egg", kcal:90, p:6, c:0, f:7, keys:["fried egg","fried eggs"]},
+  {id:"omelette", name:"Omelette", unit:"2 eggs", kcal:190, p:13, c:1, f:15, keys:["omelette","omelettes","omelet","omelets","omlet","omlette"]},
+  {id:"oats", name:"Oats with milk", unit:"1 bowl", kcal:250, p:10, c:38, f:7, keys:["oats","oatmeal","porridge","oats with milk"]},
+  {id:"muesli", name:"Muesli", unit:"½ cup", kcal:170, p:5, c:30, f:3, cereal:true, keys:["muesli","museli","musli"]},
+  {id:"granola", name:"Granola", unit:"½ cup", kcal:250, p:6, c:33, f:11, cereal:true, keys:["granola"]},
+  {id:"weetabix", name:"Weetabix", unit:"2 biscuits", kcal:130, p:4, c:26, f:1, per:2, cereal:true, keys:["weetabix","weetabixes"]},
+  {id:"bread", name:"Bread", unit:"1 slice", kcal:80, p:3, c:15, f:1, keys:["bread","toast","toasts"]},
+  {id:"butter", name:"Butter", unit:"1 tsp", kcal:35, p:0, c:0, f:4, keys:["butter","makhan","makkhan"]},
+  {id:"honey", name:"Honey / jam", unit:"1 tbsp", kcal:60, p:0, c:15, f:0, keys:["honey","jam","jelly","shehad","marmalade"]},
+  {id:"chicken", name:"Grilled chicken breast", unit:"100 g", kcal:165, p:31, c:0, f:4, grams:100, keys:["grilled chicken","chicken breast","chicken breasts","chicken tikka","tandoori chicken"]},
+  {id:"fish", name:"Grilled fish", unit:"100 g", kcal:140, p:25, c:0, f:4.5, grams:100, keys:["grilled fish","fish","baked fish","salmon","fish fillet"]},
+  {id:"sabzi", name:"Vegetable sabzi", unit:"1 cup", kcal:150, p:4, c:15, f:9, keys:["sabzi","sabji","vegetables","vegetable curry","veg curry","mixed vegetables","bhindi","aloo gobi"]},
+  {id:"salad", name:"Mixed salad", unit:"1 bowl", kcal:50, p:2, c:9, f:0.5, keys:["salad","mixed salad","green salad","kachumber","cucumber"]},
+  {id:"apple", name:"Apple", unit:"1 medium", kcal:95, p:0.5, c:25, f:0.3, keys:["apple","apples"]},
+  {id:"orange", name:"Orange", unit:"1 medium", kcal:60, p:1, c:15, f:0, keys:["orange","oranges","kinnow","kinnows","mandarin"]},
+  {id:"mango", name:"Mango", unit:"1 cup", kcal:100, p:1, c:25, f:0.5, keys:["mango","mangoes","mangos"]},
+  {id:"dates", name:"Dates", unit:"3 dates", kcal:60, p:0.5, c:16, f:0, per:3, keys:["dates","date","khajoor","khajur","khajoors"]},
+  {id:"almonds", name:"Almonds", unit:"10 almonds", kcal:70, p:2.5, c:2.5, f:6, per:10, keys:["almonds","almond","badam"]},
+  {id:"blacktea", name:"Black tea / coffee", unit:"1 cup", kcal:5, p:0, c:1, f:0, keys:["black tea","green tea","herbal tea","black coffee","coffee","coffees","americano"]},
+  {id:"lassi", name:"Sweet lassi", unit:"1 glass", kcal:220, p:7, c:34, f:6, keys:["lassi","sweet lassi","mango lassi"]},
+  {id:"pizza", name:"Pizza", unit:"1 slice", kcal:285, p:12, c:36, f:10, keys:["pizza","pizzas","pizza slice"]},
+  {id:"samosa", name:"Samosa", unit:"1 samosa", kcal:260, p:4, c:26, f:16, keys:["samosa","samosas"]},
+  {id:"softdrink", name:"Soft drink", unit:"330 ml can", kcal:140, p:0, c:35, f:0, keys:["soft drink","soft drinks","soda","coke","cola","pepsi","sprite","fanta","7up","fizzy drink"]}
 ];
 const MEAL_PLANS = [
   {name:"Desi balanced day", meals:[
@@ -870,10 +941,15 @@ function removeReps(c, n){
   d.reps[c.id] = have - k; c.count = Math.max(0, c.count - k);
   save(); return k;
 }
-function addFood(name, kcal, remember){
-  day().food.push({name, kcal:Math.round(kcal), t:Date.now()});
+const r1 = x => Math.round(x * 10) / 10;
+const macrosOf = (food, s = 1) => food && food.p != null ? {p:food.p * s, c:food.c == null ? null : food.c * s, f:food.f == null ? null : food.f * s} : null;
+function addFood(name, kcal, remember, m){
+  const e = {name, kcal:Math.round(kcal), t:Date.now()};
+  if(m && m.p != null){ e.p = r1(m.p); if(m.c != null) e.c = r1(m.c); if(m.f != null) e.f = r1(m.f); }
+  day().food.push(e);
   if(remember && name){
-    S.myFoods = [{name, kcal:Math.round(kcal)}, ...S.myFoods.filter(f => f.name.toLowerCase() !== name.toLowerCase())].slice(0, 12);
+    const keep = {name, kcal:e.kcal}; if(e.p != null){ keep.p = e.p; keep.c = e.c; keep.f = e.f; }
+    S.myFoods = [keep, ...S.myFoods.filter(f => f.name.toLowerCase() !== name.toLowerCase())].slice(0, 12);
   }
   save();
 }
@@ -933,6 +1009,7 @@ function renderToday(){
           ${legendRow("var(--ring-water)", "Water", d.water, ` / ${CONFIG.waterGoal} glasses`)}
         </div>
       </div>
+      ${isPro() ? heroProtein(d, t) : ""}
     </section>
 
     <div class="quick">
@@ -941,6 +1018,8 @@ function renderToday(){
       <a class="qa" href="#counter"><span class="ic ic-reps">${I.counter}</span>Count reps</a>
       <button class="qa" data-action="gotoWeight"><span class="ic ic-weight">${I.scale}</span>Weight</button>
     </div>
+    ${proReminder()}
+    ${nextMealCard()}
 
     ${S.settings.hintDismissed ? "" : `
     <div class="card hintcard">
@@ -1097,11 +1176,16 @@ function renderFood(){
       </div>
     </div>
 
+    ${proReminder()}
+    ${isPro() ? planCard() : ""}
+
     <div class="card" id="foodLog">
       <div class="card-head"><h3>Food log</h3><span class="num small muted">${fmt(eaten)} / ${fmt(t.target)} kcal</span></div>
       <div class="bar ${over?"accent":""}"><i style="width:${Math.min(100,eaten/t.target*100)}%"></i></div>
-      <div class="list">${d.food.length ? d.food.map((f,i)=>`<div class="item"><span class="meta"><span>${esc(f.name)}</span>${f.t?`<span class="small muted">${timeOf(f.t)}</span>`:""}</span><span class="row" style="flex-wrap:nowrap"><span class="num muted small">${f.kcal} kcal</span><button class="x" data-action="delFood" data-i="${i}" aria-label="Remove ${esc(f.name)}">${I.x}</button></span></div>`).join("") : `<p class="empty">Nothing logged yet. Tap a food below, or say “I had 2 boiled eggs”.</p>`}</div>
+      <div class="list">${d.food.length ? d.food.map((f,i)=>`<div class="item"><span class="meta"><span>${esc(f.name)}</span>${f.t?`<span class="small muted">${timeOf(f.t)}</span>`:""}${isPro() && f.p != null ? `<span class="macro-line num">P ${Math.round(f.p)} g${f.c != null ? ` · C ${Math.round(f.c)} g` : ""}${f.f != null ? ` · F ${Math.round(f.f)} g` : ""}</span>` : ""}</span><span class="row" style="flex-wrap:nowrap"><span class="num muted small">${f.kcal} kcal</span><button class="x" data-action="delFood" data-i="${i}" aria-label="Remove ${esc(f.name)}">${I.x}</button></span></div>`).join("") : `<p class="empty">Nothing logged yet. Tap a food below, or say “I had 2 boiled eggs”.</p>`}</div>
     </div>
+
+    ${isPro() ? macrosCard(d, t) : proTeaser()}
 
     <div class="card" id="quickAdd">
       <div class="card-head"><h3>Quick add</h3><button class="btn ghost sm" data-action="addFood">+ Custom food</button></div>
@@ -1113,12 +1197,12 @@ function renderFood(){
       <p class="small muted">Calories are typical home-portion estimates.</p>
     </div>
 
-    <div class="card">
+    ${isPro() ? "" : `<div class="card">
       <h3>Sample meal plans</h3>
       ${MEAL_PLANS.map((m,mi)=>`<details class="meal" ${mi===0?"open":""}><summary>${m.name} <span class="muted num" style="margin-left:auto;font-weight:500">≈${fmt(sum(m.meals,x=>x[2]))} kcal</span></summary>
         ${m.meals.map(([w,txt,k])=>`<div class="mealrow"><span><em>${w}</em>${txt}</span><span class="num muted">${k}</span></div>`).join("")}
       </details>`).join("")}
-    </div>
+    </div>`}
 
     <div class="card">
       <h3>Rules that work</h3>
@@ -1377,6 +1461,389 @@ function renderTimer(){
   updateHandsUI();
 }
 
+/* ---------- Lean Daily Pro: unlock codes ---------- */
+// A code looks like LDP1.<details>.<signature>. The details say who it's for and until when.
+// Only the owner can make codes (codes.html signs them with a secret key kept on the owner's phone).
+// The app checks the signature with the public key(s) in CONFIG.pro.keys, so codes can't be made up or edited.
+let PRO = null, proPick = "year";
+const niceDate = k => new Date(k + "T12:00").toLocaleDateString(undefined, {day:"numeric", month:"short", year:"numeric"});
+const fromB64u = s => { s = String(s).replace(/-/g, "+").replace(/_/g, "/"); while(s.length % 4) s += "="; return Uint8Array.from(atob(s), ch => ch.charCodeAt(0)); };
+async function checkCode(raw){
+  let code = String(raw || "").trim();
+  const m = code.match(/[?&]pro=([^&#\s]+)/);
+  if(m){ try{ code = decodeURIComponent(m[1]); }catch(e){ code = m[1]; } }
+  code = code.replace(/\s+/g, "");
+  const bad = {error:"That code isn't right. Check you copied all of it."};
+  const parts = code.split(".");
+  if(parts.length !== 3 || parts[0] !== "LDP1") return {error:"That doesn't look like a Lean Daily Pro code."};
+  const keys = ((CONFIG.pro || {}).keys || []).filter(Boolean);
+  if(!keys.length) return {error:"Pro isn't switched on in this app yet."};
+  if(!(window.crypto && crypto.subtle)) return {error:"This browser can't check codes. Open the app in Safari or Chrome."};
+  try{
+    const data = new TextEncoder().encode(parts[0] + "." + parts[1]), sig = fromB64u(parts[2]);
+    let ok = false;
+    for(const k of keys){
+      try{
+        const key = await crypto.subtle.importKey("raw", fromB64u(k), {name:"ECDSA", namedCurve:"P-256"}, false, ["verify"]);
+        if(await crypto.subtle.verify({name:"ECDSA", hash:"SHA-256"}, key, sig, data)){ ok = true; break; }
+      }catch(e){}
+    }
+    if(!ok) return bad;
+    const d = JSON.parse(new TextDecoder().decode(fromB64u(parts[1])));
+    if(!d || !/^\d{4}-\d{2}-\d{2}$/.test(d.u || "")) return bad;
+    return {code, name:String(d.n || "").slice(0, 40), plan:d.p || "", until:d.u};
+  }catch(e){ return bad; }
+}
+const isPro = () => !!PRO && PRO.until >= todayKey();
+const proDaysLeft = () => PRO ? Math.round((new Date(PRO.until + "T12:00") - new Date(todayKey() + "T12:00")) / 864e5) : 0;
+async function loadPro(){
+  if(!(S.pro && S.pro.code)) return;
+  const r = await checkCode(S.pro.code);
+  PRO = r.error ? null : r;
+  if(PRO) renderAll();
+}
+async function applyCode(raw){
+  const r = await checkCode(raw);
+  if(r.error) return r;
+  if(r.until < todayKey()) return {error:`That code ended on ${niceDate(r.until)}. Ask for a new one to renew.`};
+  if(isPro() && PRO.until > r.until) return {error:`You already have Pro until ${niceDate(PRO.until)}, which is later than this code.`};
+  PRO = r; S.pro = {code:r.code}; save(); renderAll();
+  return r;
+}
+const PROP = () => CONFIG.pro || {};
+const money = x => { const n = Number(x); return `${PROP().currency || "$"}${n % 1 ? n.toFixed(2) : n}`; };
+const waUrl = text => { const n = String(PROP().whatsapp || "").replace(/\D/g, ""); return n ? `https://wa.me/${n}?text=${encodeURIComponent(text)}` : ""; };
+
+function proSheet({error = ""} = {}){
+  const P = PROP(), t = targets();
+  const saving = P.monthly > 0 && P.yearly > 0 ? Math.round((1 - P.yearly / (P.monthly * 12)) * 100) : 0;
+  if(!(P.yearly > 0)) proPick = "month"; else if(!(P.monthly > 0)) proPick = "year";
+  const card = proPick === "year" ? P.cardYearlyUrl : P.cardMonthlyUrl;
+  const renew = !!PRO;
+  const wa = waUrl(`Hi! I'd like to ${renew ? "renew" : "get"} Lean Daily Pro (${proPick === "year" ? "yearly" : "monthly"}).${PRO && PRO.name ? ` The name on my code is ${PRO.name}.` : ""}`);
+  openSheet({title:"Lean Daily Pro", kind:"pro", body:`
+    ${isPro() ? `<div class="callout good">${I.check}<span>You have Pro${PRO.name ? `, ${esc(PRO.name)}` : ""}, until ${niceDate(PRO.until)}.${proDaysLeft() <= 7 ? " Renew below so it doesn't stop." : ""}</span></div>`
+      : PRO ? `<div class="callout">Your Pro ended on ${niceDate(PRO.until)}. Renew to get your meal plan and protein tracking back.</div>` : ""}
+    <ul class="pro-list">
+      <li>${I.check}<span><b>Your own meal plan.</b> 7 days of desi meals that fit your ${fmt(t.target)} kcal target, with a grocery list.</span></li>
+      <li>${I.check}<span><b>Log a whole meal in one tap,</b> or say “log my lunch”.</span></li>
+      <li>${I.check}<span><b>Protein, carbs and fat</b> for every food, with your daily goal of ${t.protein} g protein.</span></li>
+    </ul>
+    ${P.monthly > 0 || P.yearly > 0 ? `<div class="prices" role="group" aria-label="Choose a plan">
+      ${P.monthly > 0 ? `<button type="button" class="priceopt" data-action="proPick" data-v="month" aria-pressed="${proPick === "month"}"><b>Monthly</b><span>${money(P.monthly)} a month</span></button>` : ""}
+      ${P.yearly > 0 ? `<button type="button" class="priceopt" data-action="proPick" data-v="year" aria-pressed="${proPick === "year"}"><b>Yearly</b><span>${money(P.yearly)} a year</span>${saving > 0 ? `<i>Save ${saving}%</i>` : ""}</button>` : ""}
+    </div>` : ""}
+    ${card ? `<a class="btn primary block" href="${esc(card)}" target="_blank" rel="noopener">Pay by card</a>` : ""}
+    ${wa ? `<a class="btn block wabtn" href="${esc(wa)}" target="_blank" rel="noopener">${I.wa}${card ? "Pay another way on WhatsApp" : `${renew ? "Renew" : "Get Pro"} on WhatsApp`}</a>` : ""}
+    ${card || wa ? "" : `<p class="callout">Pro is coming soon.</p>`}
+    <form class="codeform" id="codeForm" autocomplete="off">
+      <label class="f" for="proCode">Have a code?<input id="proCode" type="text" placeholder="Paste your code or link" autocapitalize="off" spellcheck="false"></label>
+      <button class="btn" type="submit">Unlock</button>
+    </form>
+    <p class="small codeerr" id="codeErr" ${error ? "" : "hidden"}>${esc(error)}</p>
+    <p class="small muted">${card ? "After you pay by card, you'll get your code. " : ""}Codes are for one person and show your name in the app. Your food log stays on this phone.</p>`});
+}
+function proThanksSheet(){
+  const wa = waUrl("Hi! I just paid for Lean Daily Pro by card. My name is ");
+  openSheet({title:"Thank you!", kind:"pro", body:`
+    <p>Your payment went through. You'll get your unlock code soon, usually within a few hours.</p>
+    ${wa ? `<a class="btn block wabtn" href="${esc(wa)}" target="_blank" rel="noopener">${I.wa}Send your receipt on WhatsApp</a><p class="small muted">Sending your receipt gets your code faster.</p>` : ""}
+    <form class="codeform" id="codeForm" autocomplete="off"><label class="f" for="proCode">Got your code?<input id="proCode" type="text" placeholder="Paste your code or link" autocapitalize="off" spellcheck="false"></label><button class="btn" type="submit">Unlock</button></form>
+    <p class="small codeerr" id="codeErr" hidden></p>`});
+}
+function proWelcome(r){
+  openSheet({title:`Welcome to Pro${r.name ? `, ${esc(r.name)}` : ""}!`, kind:"pro", body:`
+    <p>Meal plans and protein tracking are unlocked until <b>${niceDate(r.until)}</b>.</p>
+    <button type="button" class="btn primary block" data-action="planOpen">${I.sparkle}${S.mealPlan ? "See my meal plan" : "Make my meal plan"}</button>
+    <p class="small muted">Your plan uses your calorie target from Your details. You can switch to vegetarian any time.</p>`});
+  say(`Welcome to Lean Daily Pro${r.name ? ", " + r.name : ""}.`);
+}
+function proSettingsBlock(){
+  if(isPro()) return `<div><span class="eyebrow">Lean Daily Pro</span>
+    <div class="prorow">${I.sparkle}<div class="grow"><b>Pro${PRO.name ? ` · ${esc(PRO.name)}` : ""}</b><span class="small muted">Until ${niceDate(PRO.until)}, ${plural(proDaysLeft(), "day")} left</span></div><button type="button" class="btn sm" data-action="pro">Renew</button></div></div>`;
+  return `<div><span class="eyebrow">Lean Daily Pro</span>
+    <button type="button" class="btn primary block" data-action="pro" style="margin-top:8px">${I.sparkle}${PRO ? "Renew Pro" : "Meal plans and protein: see Pro"}</button></div>`;
+}
+const proReminder = () => isPro() && proDaysLeft() <= 5
+  ? `<div class="callout row between" style="flex-wrap:nowrap"><span>${proDaysLeft() === 0 ? "Your Pro ends today." : `Your Pro ends in ${plural(proDaysLeft(), "day")}.`}</span><button class="btn sm" data-action="pro">Renew</button></div>` : "";
+function proCmd(t){
+  if(!/\b(pro|premium|upgrade|subscribe|subscription)\b/.test(t)) return null;
+  if(!/^(open|show|get|buy|unlock|upgrade|subscribe|renew|go|lean daily pro|pro|premium)\b/.test(t)) return null;
+  return {msg:"Here's Lean Daily Pro.", next:() => proSheet(), quiet:true};
+}
+
+/* ---------- Pro: protein, carbs and fat ---------- */
+function macroTotals(d){
+  const m = {p:0, c:0, f:0, miss:0};
+  (d.food || []).forEach(e => { if(e.p == null){ m.miss++; return; } m.p += e.p; m.c += e.c || 0; m.f += e.f || 0; });
+  return m;
+}
+function heroProtein(d, t){
+  const m = macroTotals(d);
+  return `<div class="hero-protein"><div class="row between"><span class="lab">Protein</span><span class="num"><b>${Math.round(m.p)}</b> / ${t.protein} g</span></div><div class="hbar"><i style="width:${Math.min(100, m.p / t.protein * 100)}%"></i></div></div>`;
+}
+function macrosCard(d, t){
+  const m = macroTotals(d);
+  const row = (lab, v, goal, cls) => `<div class="mrow"><div class="row between"><span>${lab}</span><span class="num small muted"><b class="ink">${Math.round(v)}</b> / ${goal} g</span></div><div class="bar ${cls}"><i style="width:${Math.min(100, v / goal * 100)}%"></i></div></div>`;
+  return `<div class="card" id="macroCard">
+    <div class="card-head"><h3>Protein, carbs and fat</h3><span class="probadge">PRO</span></div>
+    ${row("Protein", m.p, t.protein, "protein")}${row("Carbs", m.c, t.carbs, "carbs")}${row("Fat", m.f, t.fat, "fat")}
+    <p class="small muted">${m.p >= t.protein ? "Protein goal reached. Nice." : `${Math.max(0, Math.round(t.protein - m.p))} g protein to go. Eggs, daal, chicken, fish, dahi and chana are easy wins.`}${m.miss ? ` ${plural(m.miss, "food")} today ${m.miss === 1 ? "has" : "have"} no protein info.` : ""}</p>
+  </div>`;
+}
+
+/* ---------- Pro: 7-day meal plan ---------- */
+const FOOD_BY_ID = Object.fromEntries(FOODS.map(f => [f.id, f]));
+const SLOTS = ["breakfast", "lunch", "snack", "dinner"];
+const SLOT_NAMES = {breakfast:"Breakfast", lunch:"Lunch", snack:"Snack", dinner:"Dinner"};
+const SLOT_SHARE = {breakfast:.25, lunch:.32, snack:.13, dinner:.30};
+// Each meal is a list of [food id, servings, step, smallest, largest]. No step means the amount stays fixed.
+// diet: "veg" (may include dairy), "egg" (has eggs, no meat), "meat". dish stops the same dish twice in a day.
+const MEALS = {
+  breakfast:[
+    {id:"b1", diet:"egg", items:[["egg",2,1,1,4],["roti",1,1,1,4],["chainosugar",1]]},
+    {id:"b2", diet:"veg", items:[["oats",1,0.5,0.5,2],["banana",0.5,0.5,0,1.5]]},
+    {id:"b3", diet:"egg", items:[["omelette",1,0.5,0.5,2],["bread",1,1,1,2],["chainosugar",1]]},
+    {id:"b4", diet:"veg", items:[["cereal",1,0.5,0.5,2.5],["milk",1,0.5,0.5,1.5],["banana",0.5]]},
+    {id:"b5", diet:"veg", items:[["greekyogurt",1,0.5,1,2.5],["muesli",1,0.5,0.5,1.5],["apple",0.5]]},
+    {id:"b6", diet:"veg", weekend:true, items:[["paratha",1],["yogurt",0.5,0.5,0.5,1.5],["chainosugar",1]]},
+    {id:"b7", diet:"veg", items:[["roti",1,1,1,4],["sabzi",0.5,0.5,0.5,2],["yogurt",0.5],["chainosugar",1]]}
+  ],
+  lunch:[
+    {id:"l1", dish:"daal", diet:"veg", items:[["daal",1,0.5,0.5,2],["roti",1,1,1,4],["salad",1]]},
+    {id:"l2", dish:"chickencurry", diet:"meat", items:[["chickencurry",1,0.5,0.5,2],["roti",1,1,1,4],["salad",1]]},
+    {id:"l3", dish:"chicken", diet:"meat", items:[["chicken",1.5,0.5,1,3.5],["rice",1,0.5,0.5,2],["salad",1]]},
+    {id:"l4", dish:"chana", diet:"veg", items:[["chana",1,0.5,0.5,2],["roti",1,1,1,4],["salad",1]]},
+    {id:"l5", dish:"sabzi", diet:"veg", items:[["sabzi",1,0.5,0.5,2],["roti",1,1,1,4],["yogurt",0.5]]},
+    {id:"l6", dish:"biryani", diet:"meat", items:[["biryani",1,0.5,0.5,2],["yogurt",0.5],["salad",1]]},
+    {id:"l7", dish:"fish", diet:"meat", items:[["fish",1.5,0.5,1,3.5],["rice",1,0.5,0.5,2],["salad",1]]},
+    {id:"l8", dish:"paneer", diet:"veg", items:[["palakpaneer",1,0.5,0.5,2],["roti",1,1,1,4],["salad",1]]},
+    {id:"l9", dish:"daal", diet:"veg", items:[["daal",1,0.5,0.5,2],["rice",1,0.5,0.5,2],["salad",1]]}
+  ],
+  snack:[
+    {id:"s1", diet:"veg", items:[["apple",1],["almonds",1,1,1,3]]},
+    {id:"s2", diet:"veg", items:[["yogurt",1,0.5,0.5,1.5]]},
+    {id:"s3", diet:"egg", items:[["egg",2,1,1,4]]},
+    {id:"s4", diet:"veg", items:[["dates",1],["almonds",1,1,1,3]]},
+    {id:"s5", diet:"veg", items:[["fruitchaat",1,0.5,0.5,2]]},
+    {id:"s6", diet:"veg", items:[["greekyogurt",1,0.5,1,2.5],["honey",0.5]]},
+    {id:"s7", diet:"veg", items:[["banana",1],["chainosugar",1]]},
+    {id:"s8", diet:"veg", items:[["orange",1],["almonds",1]]}
+  ],
+  dinner:[
+    {id:"d1", dish:"chicken", diet:"meat", items:[["chicken",1.5,0.5,1,3.5],["sabzi",1],["roti",1,1,1,4]]},
+    {id:"d2", dish:"daal", diet:"veg", items:[["daal",1,0.5,0.5,2],["roti",1,1,1,4],["salad",1]]},
+    {id:"d3", dish:"chickencurry", diet:"meat", items:[["chickencurry",1,0.5,0.5,2],["roti",1,1,1,4],["salad",1]]},
+    {id:"d4", dish:"fish", diet:"meat", items:[["fish",1.5,0.5,1,3.5],["sabzi",1],["salad",1]]},
+    {id:"d5", dish:"egg", diet:"egg", items:[["omelette",1,0.5,0.5,2],["roti",1,1,1,4],["salad",1]]},
+    {id:"d6", dish:"chana", diet:"veg", items:[["chana",1,0.5,0.5,2],["rice",0.5,0.5,0.5,2],["salad",1]]},
+    {id:"d7", dish:"paneer", diet:"veg", items:[["palakpaneer",1,0.5,0.5,2],["roti",1,1,1,4]]},
+    {id:"d8", dish:"sabzi", diet:"veg", items:[["sabzi",1,0.5,0.5,2],["daal",0.5,0.5,0.5,2],["roti",1,1,1,4]]}
+  ]
+};
+const MEAL_BY_ID = Object.fromEntries(Object.values(MEALS).flat().map(m => [m.id, m]));
+const dietOk = (tpl, diet) => diet === "all" || tpl.diet === "veg" || (diet === "egg" && tpl.diet === "egg");
+function mulberry32(a){ return () => { a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+function scaleMeal(tpl, goal){
+  const items = tpl.items.map(([id, q, step, min, max]) => ({id, q, step, min, max}));
+  const kc = i => FOOD_BY_ID[i.id].kcal * i.q;
+  const fixed = sum(items.filter(i => !i.step), kc), flex = sum(items.filter(i => i.step), kc);
+  const m = flex > 0 ? Math.max(0.3, (goal - fixed) / flex) : 1;
+  items.forEach(i => { if(i.step) i.q = Math.min(i.max, Math.max(i.min, Math.round(i.q * m / i.step) * i.step)); });
+  return {tpl:tpl.id, items:items.filter(i => i.q > 0)};
+}
+function mealTotals(meal){
+  const t = {kcal:0, p:0, c:0, f:0};
+  meal.items.forEach(i => { const f = FOOD_BY_ID[i.id]; if(!f) return; t.kcal += f.kcal * i.q; t.p += (f.p || 0) * i.q; t.c += (f.c || 0) * i.q; t.f += (f.f || 0) * i.q; });
+  return t;
+}
+const dayTotals = meals => meals.reduce((a, m) => { const t = mealTotals(m); a.kcal += t.kcal; a.p += t.p; a.c += t.c; a.f += t.f; return a; }, {kcal:0, p:0, c:0, f:0});
+function fitDay(meals, target){
+  // nudge portions one step at a time until the day is within 5% of the target
+  for(let k = 0; k < 12; k++){
+    const tot = dayTotals(meals).kcal, gap = Math.abs(tot - target);
+    if(gap <= target * 0.05) break;
+    const up = tot < target;
+    let best = null;
+    meals.forEach(m => m.items.forEach(i => {
+      if(!i.step) return;
+      const nq = i.q + (up ? i.step : -i.step);
+      if(nq > i.max + 1e-9 || nq < i.min - 1e-9) return;
+      const after = Math.abs(tot + (up ? 1 : -1) * FOOD_BY_ID[i.id].kcal * i.step - target);
+      if(!best || after < best.after) best = {i, nq, after};
+    }));
+    if(!best || best.after >= gap) break;
+    best.i.q = best.nq;
+  }
+  meals.forEach(m => { m.items = m.items.filter(i => i.q > 0); });
+}
+function makePlan(diet = "all", seed = Date.now()){
+  const t = targets(), target = t.target, rnd = mulberry32(seed), used = {}, days = [];
+  for(let d = 0; d < 7; d++){
+    let best = null;
+    for(let tries = 0; tries < 40; tries++){
+      const meals = SLOTS.map(slot => {
+        const opts = MEALS[slot].filter(x => dietOk(x, diet) && (!x.weekend || d >= 5));
+        return {slot, ...scaleMeal(opts[Math.floor(rnd() * opts.length)], target * SLOT_SHARE[slot])};
+      });
+      fitDay(meals, target);
+      const tot = dayTotals(meals), by = s => meals.find(m => m.slot === s), dish = m => MEAL_BY_ID[m.tpl].dish;
+      let score = -Math.abs(tot.kcal - target) / target * 4 + Math.min(tot.p / t.protein, 1.1);
+      if(dish(by("lunch")) === dish(by("dinner"))) score -= 1.5;
+      meals.forEach(m => { score -= (used[m.tpl] || 0) * 0.35; if(d && days[d-1].meals.find(x => x.slot === m.slot).tpl === m.tpl) score -= 1; });
+      if(!best || score > best.score) best = {score, meals};
+    }
+    best.meals.forEach(m => { used[m.tpl] = (used[m.tpl] || 0) + 1; });
+    days.push({meals:best.meals});
+  }
+  return {diet, target, made:todayKey(), days};
+}
+function ensurePlan(){ if(!S.mealPlan){ S.mealPlan = makePlan(S.settings.diet || "all"); save(); } return S.mealPlan; }
+function portionText(food, q){
+  if(food.grams) return `${Math.round(food.grams * q)} g`;
+  const m = food.unit.match(/^([\d.]+|½)\s+(.+)$/);
+  if(!m) return `${fmtQ(q)} × ${food.unit}`;
+  const total = (m[1] === "½" ? 0.5 : parseFloat(m[1])) * q;
+  const words = m[2].split(" "), w0 = words[0].replace(/,$/, "");
+  const PLURAL = {egg:"eggs", slice:"slices", glass:"glasses", bowl:"bowls", cup:"cups", roti:"rotis", paratha:"parathas", samosa:"samosas", biscuit:"biscuits", date:"dates", almond:"almonds"};
+  const SINGLE = Object.fromEntries(Object.entries(PLURAL).map(([a, b]) => [b, a]));
+  if(total > 1 && PLURAL[w0]) words[0] = words[0].replace(w0, PLURAL[w0]);
+  if(total <= 1 && SINGLE[w0]) words[0] = words[0].replace(w0, SINGLE[w0]);
+  return `${fmtQ(total)} ${words.join(" ")}`;
+}
+const itemLabel = i => { const f = FOOD_BY_ID[i.id]; return i.q === 1 ? f.name : `${f.name} ×${fmtQ(i.q)}`; };
+const mealSummary = m => m.items.map(itemLabel).join(", ");
+function logPlannedMeal(slot, dayIdx = weekIdx()){
+  const plan = S.mealPlan; if(!plan) return null;
+  const meal = plan.days[dayIdx].meals.find(m => m.slot === slot); if(!meal) return null;
+  meal.items.forEach(i => { const f = FOOD_BY_ID[i.id]; addFood(itemLabel(i), f.kcal * i.q, false, macrosOf(f, i.q)); });
+  const d = day(); (d.planDone ||= {})[slot] = true; save();
+  return meal;
+}
+function swapMeal(dayIdx, slot){
+  const plan = S.mealPlan; if(!plan) return;
+  const dd = plan.days[dayIdx], at = dd.meals.findIndex(m => m.slot === slot), cur = dd.meals[at];
+  const opts = MEALS[slot].filter(x => dietOk(x, plan.diet) && x.id !== cur.tpl && (!x.weekend || dayIdx >= 5));
+  if(!opts.length) return;
+  const others = dayTotals(dd.meals.filter((_, i) => i !== at)).kcal;
+  dd.meals[at] = {slot, ...scaleMeal(opts[Math.floor(Math.random() * opts.length)], Math.max(120, plan.target - others))};
+  save();
+}
+function planCard(){
+  const t = targets();
+  if(!S.mealPlan) return `<div class="card"><div class="card-head"><h3>Your meal plan</h3><span class="probadge">PRO</span></div><p class="small muted">Make a 7-day plan that fits your ${fmt(t.target)} kcal target.</p><button class="btn primary block" data-action="planOpen">${I.sparkle}Make my meal plan</button></div>`;
+  const di = weekIdx(), meals = S.mealPlan.days[di].meals, done = day().planDone || {};
+  return `<div class="card" id="planCard">
+    <div class="card-head"><h3>Today's meal plan</h3><button class="btn ghost sm" data-action="planOpen">Week &amp; groceries</button></div>
+    <div class="list">${meals.map(m => { const tt = mealTotals(m); return `<div class="item"><span class="meta"><span class="eyebrow">${SLOT_NAMES[m.slot]} · ${fmt(tt.kcal)} kcal</span><span>${esc(mealSummary(m))}</span></span>${done[m.slot] ? `<span class="badge">${I.check}Logged</span>` : `<button class="btn sm soft" data-action="planLog" data-slot="${m.slot}" data-day="${di}">Log</button>`}</div>`; }).join("")}</div>
+  </div>`;
+}
+function nextMealCard(){
+  if(!isPro()) return "";
+  if(!S.mealPlan) return `<div class="card"><div class="wrow"><span class="wicon">${I.food}</span><div class="grow"><span class="eyebrow">Meal plan · Pro</span><h3>Make your meal plan</h3><p class="small muted">7 days of desi meals that fit your target.</p></div></div><button class="btn primary block" data-action="planOpen">${I.sparkle}Make my meal plan</button></div>`;
+  const di = weekIdx(), meals = S.mealPlan.days[di].meals, done = day().planDone || {}, next = meals.find(m => !done[m.slot]);
+  if(!next) return `<div class="card"><div class="wrow"><span class="wicon">${I.check}</span><div class="grow"><span class="eyebrow">Meal plan</span><h3>All of today's meals are logged</h3><p class="small muted">Nice work. Tomorrow's plan is ready when you are.</p></div></div><button class="btn block" data-action="planOpen">See my plan</button></div>`;
+  const tt = mealTotals(next);
+  return `<div class="card"><div class="wrow"><span class="wicon">${I.food}</span><div class="grow"><span class="eyebrow">Up next · ${SLOT_NAMES[next.slot]}</span><h3>${esc(mealSummary(next))}</h3><p class="small muted num">${fmt(tt.kcal)} kcal · ${Math.round(tt.p)} g protein</p></div></div>
+    <div class="grid2"><button class="btn primary" data-action="planLog" data-slot="${next.slot}" data-day="${di}">${I.check}Log it</button><button class="btn" data-action="planOpen">See plan</button></div></div>`;
+}
+function proTeaser(){
+  const t = targets(), sample = makePlan(S.settings.diet || "all", 7).days[weekIdx()].meals;
+  return `<div class="card proteaser">
+    <div class="row" style="flex-wrap:nowrap;align-items:flex-start;gap:12px"><span class="ic ic-pro">${I.sparkle}</span>
+      <div class="grow"><span class="probadge">PRO</span><h3 style="margin-top:6px">${PRO ? "Get your meal plan back" : "Your own meal plan and protein tracking"}</h3>
+      <p class="small muted">${PRO ? `Your Pro ended on ${niceDate(PRO.until)}.` : `A week of desi meals that fit your ${fmt(t.target)} kcal target, a grocery list, and protein for every food.`}</p></div></div>
+    <div class="planpeek" aria-hidden="true">${sample.map(m => `<div class="pp"><b>${SLOT_NAMES[m.slot]}</b><span class="blur">${esc(mealSummary(m))}</span></div>`).join("")}</div>
+    <button class="btn primary block" data-action="pro">${PRO ? "Renew Pro" : "See Lean Daily Pro"}</button>
+  </div>`;
+}
+let planDayShown = null;
+function planSheet(dayIdx){
+  if(!isPro()) return proSheet();
+  const plan = ensurePlan(), t = targets();
+  const di = dayIdx ?? (sheetKind === "plan" && planDayShown != null ? planDayShown : weekIdx());
+  planDayShown = di;
+  const dd = plan.days[di], tot = dayTotals(dd.meals), today = weekIdx(), done = day().planDone || {};
+  openSheet({title:"Your meal plan", kind:"plan", body:`
+    <div class="seg" role="group" aria-label="Diet">${[["all","Everything"],["egg","Veg + eggs"],["veg","Vegetarian"]].map(([v, l]) => `<button type="button" data-action="planDiet" data-v="${v}" aria-pressed="${plan.diet === v}">${l}</button>`).join("")}</div>
+    ${Math.abs(plan.target - t.target) > 100 ? `<div class="callout row between" style="flex-wrap:nowrap"><span>Your target is now ${fmt(t.target)} kcal.</span><button type="button" class="btn sm" data-action="planNew">New plan</button></div>` : ""}
+    <div class="chips daychips">${["Mon","Tue","Wed","Thu","Fri","Sat","Sun"].map((n, i) => `<button type="button" class="chip" data-action="planDay" data-v="${i}" aria-pressed="${i === di}">${i === today ? "Today" : n}</button>`).join("")}</div>
+    <div class="planday"><b class="num">${fmt(tot.kcal)} kcal</b><span class="small muted num">${Math.round(tot.p)} g protein · your target is ${fmt(t.target)} kcal and ${t.protein} g protein</span></div>
+    ${dd.meals.map(m => {
+      const tt = mealTotals(m), logged = di === today && done[m.slot];
+      return `<div class="mealcard ${logged ? "done" : ""}">
+        <div class="row between"><span class="eyebrow">${SLOT_NAMES[m.slot]}</span><span class="num small muted">${fmt(tt.kcal)} kcal · ${Math.round(tt.p)} g protein</span></div>
+        <ul>${m.items.map(i => { const f = FOOD_BY_ID[i.id]; return `<li><span>${f.name}</span><span class="muted">${portionText(f, i.q)}</span></li>`; }).join("")}</ul>
+        <div class="row"><button type="button" class="btn sm ${logged ? "" : "primary"}" data-action="planLog" data-slot="${m.slot}" data-day="${di}" ${logged ? "disabled" : ""}>${logged ? `${I.check}Logged` : di === today ? "Log it" : "Log it today"}</button><button type="button" class="btn sm ghost" data-action="planSwap" data-slot="${m.slot}" data-day="${di}">${I.swap}Swap</button></div>
+      </div>`;
+    }).join("")}
+    <div class="grid2"><button type="button" class="btn primary" data-action="grocery">${I.cart}Grocery list</button><button type="button" class="btn" data-action="planNew">${I.reset}New plan</button></div>
+    <p class="small muted">General guidance, not medical advice. Swap anything you don't eat. Cook with about 1 teaspoon of oil per serving.</p>`});
+}
+// What one serving needs from the shop: [item, amount, unit, aisle]
+const SHOP = {
+  egg:[["Eggs",1,"pc","Protein & dairy"]], friedegg:[["Eggs",1,"pc","Protein & dairy"]], omelette:[["Eggs",2,"pc","Protein & dairy"]],
+  chicken:[["Chicken breast",100,"g","Protein & dairy"]], chickencurry:[["Chicken (for curry or biryani)",100,"g","Protein & dairy"]],
+  biryani:[["Chicken (for curry or biryani)",60,"g","Protein & dairy"],["Rice",50,"g","Grains & bread"]], fish:[["Fish fillet",100,"g","Protein & dairy"]],
+  palakpaneer:[["Paneer",70,"g","Protein & dairy"],["Spinach (palak)",150,"g","Fruit & veg"]],
+  daal:[["Daal (lentils)",65,"g","Protein & dairy"]], chana:[["Chickpeas, dry",80,"g","Protein & dairy"]],
+  yogurt:[["Dahi (plain yogurt)",245,"g","Protein & dairy"]], greekyogurt:[["Greek yogurt",150,"g","Protein & dairy"]],
+  milk:[["Milk",240,"ml","Protein & dairy"]], oats:[["Oats",40,"g","Grains & bread"],["Milk",200,"ml","Protein & dairy"]],
+  chai:[["Milk",80,"ml","Protein & dairy"]], chainosugar:[["Milk",80,"ml","Protein & dairy"]],
+  roti:[["Atta (whole wheat flour)",35,"g","Grains & bread"]], paratha:[["Atta (whole wheat flour)",60,"g","Grains & bread"]],
+  rice:[["Rice",60,"g","Grains & bread"]], bread:[["Bread",1,"slice","Grains & bread"]],
+  cereal:[["Cereal",30,"g","Grains & bread"]], muesli:[["Muesli",45,"g","Grains & bread"]], granola:[["Granola",60,"g","Grains & bread"]], weetabix:[["Weetabix",2,"pc","Grains & bread"]],
+  sabzi:[["Vegetables for sabzi",200,"g","Fruit & veg"]], salad:[["Salad vegetables (cucumber, tomato, onion)",150,"g","Fruit & veg"]],
+  fruitchaat:[["Fruit for chaat",150,"g","Fruit & veg"]], banana:[["Bananas",1,"pc","Fruit & veg"]], apple:[["Apples",1,"pc","Fruit & veg"]],
+  orange:[["Oranges",1,"pc","Fruit & veg"]], mango:[["Mango",165,"g","Fruit & veg"]],
+  dates:[["Dates",3,"pc","Other"]], almonds:[["Almonds",10,"pc","Other"]], butter:[["Butter",5,"g","Other"]], honey:[["Honey",1,"tbsp","Other"]]
+};
+const AISLES = ["Protein & dairy", "Grains & bread", "Fruit & veg", "Other"];
+function groceryList(){
+  const plan = S.mealPlan; if(!plan) return [];
+  const tot = {};
+  plan.days.forEach(dd => dd.meals.forEach(m => m.items.forEach(i => (SHOP[i.id] || []).forEach(([name, amt, unit, aisle]) => {
+    const k = name + "|" + unit; (tot[k] ||= {name, unit, aisle, n:0}).n += amt * i.q;
+  }))));
+  const amount = (n, unit) => {
+    if(unit === "g" || unit === "ml"){ const big = unit === "g" ? "kg" : "L"; return n >= 1000 ? `${(Math.round(n / 100) / 10).toLocaleString()} ${big}` : `${Math.max(50, Math.round(n / 50) * 50)} ${unit}`; }
+    const c = Math.ceil(n - 1e-9);
+    return unit === "slice" ? plural(c, "slice") : unit === "tbsp" ? `${c} tbsp` : String(c);
+  };
+  return AISLES.map(a => ({aisle:a, items:Object.values(tot).filter(x => x.aisle === a).sort((x, y) => x.name.localeCompare(y.name)).map(x => ({name:x.name, amount:amount(x.n, x.unit)}))})).filter(g => g.items.length);
+}
+function groceryText(){
+  return "Lean Daily grocery list for 7 days\n" + groceryList().map(g => `\n${g.aisle.toUpperCase()}\n` + g.items.map(i => `- ${i.name}: ${i.amount}`).join("\n")).join("\n") + "\n\nPlus pantry basics: oil, onions, garlic, ginger, spices and tea.";
+}
+function grocerySheet(){
+  if(!isPro()) return proSheet();
+  const plan = ensurePlan(), got = plan.got || {};
+  openSheet({title:"Grocery list", kind:"plan", body:`
+    <p class="small muted">Everything for your 7-day plan. Tick things off as you shop.</p>
+    ${groceryList().map(g => `<div class="grocery"><h3>${g.aisle}</h3>${g.items.map(i => `<label class="gitem ${got[i.name] ? "got" : ""}"><input type="checkbox" data-grocery="${esc(i.name)}" ${got[i.name] ? "checked" : ""}><span class="grow">${esc(i.name)}</span><b class="num">${esc(i.amount)}</b></label>`).join("")}</div>`).join("")}
+    <p class="small muted">Plus pantry basics: oil, onions, garlic, ginger, spices and tea.</p>
+    <div class="grid2"><button type="button" class="btn primary" data-action="groceryShare">Share list</button><button type="button" class="btn" data-action="planOpen">Back to plan</button></div>`});
+}
+function planCmd(t){
+  const sm = t.match(/\b(breakfast|lunch|dinner|supper|snack)\b/), slot = sm ? (sm[1] === "supper" ? "dinner" : sm[1]) : null;
+  const aboutPlan = /\b(meal plan|food plan|diet plan|my plan|planned|the plan|todays plan)\b/.test(t);
+  const whatsFor = /^(whats|what is|what should i|what do i|what can i|what to)\b/.test(t) && (!!slot || /\b(eat|meal|meals)\b/.test(t));
+  const logIt = !!slot && /^(log|ate|had|i ate|i had|done with|finished|i finished|mark)\b/.test(t) && /\b(my|planned|plan)\b/.test(t) && t.split(" ").length <= 7;
+  const grocery = /\b(grocery|groceries|shopping list)\b/.test(t);
+  const newPlan = /\b(new|another|different|make|create|change)\b.*\b(meal plan|food plan|diet plan|my plan)\b/.test(t);
+  if(!(aboutPlan || whatsFor || logIt || grocery || newPlan)) return null;
+  if(!isPro()) return {msg:"Meal plans are part of Lean Daily Pro.", soft:true, next:() => proSheet()};
+  if(newPlan){ S.mealPlan = makePlan(S.settings.diet || "all"); save(); renderToday(); renderFood(); return {msg:"Here's your new meal plan.", next:() => planSheet()}; }
+  if(grocery) return {msg:"Here's your grocery list.", next:grocerySheet, quiet:true};
+  const plan = ensurePlan(), di = weekIdx();
+  if(logIt){
+    const m = logPlannedMeal(slot, di); renderFood(); renderToday(); renderHeader();
+    return m ? {msg:`Logged your ${SLOT_NAMES[slot].toLowerCase()}: ${mealSummary(m).toLowerCase()}. ${leftLine()}`, tab:"food"} : {fail:true, msg:"I couldn't find that meal in your plan."};
+  }
+  if(slot){ const m = plan.days[di].meals.find(x => x.slot === slot), tt = mealTotals(m); return info(`${SLOT_NAMES[slot]}: ${mealSummary(m).toLowerCase()}. ${fmt(tt.kcal)} kcal.`); }
+  return {msg:"Here's your meal plan.", next:() => planSheet(), quiet:true};
+}
+
 /* ---------- sheets (in-page dialogs) ---------- */
 let sheetSubmit = null, sheetKind = null, lastFocus = null, autoCloseT = null;
 function showOverlay(kind){
@@ -1451,11 +1918,17 @@ function customFoodSheet(name = ""){
   openSheet({title:"Custom food", submitLabel:"Add", body:`
     <label class="f" for="fName">Food<input id="fName" type="text" maxlength="40" placeholder="e.g. Chicken shawarma" value="${esc(name)}" required></label>
     <label class="f" for="fKcal">Calories<input id="fKcal" type="number" inputmode="numeric" min="0" max="5000" placeholder="kcal" required></label>
+    ${isPro() ? `<div class="grid3">
+      <label class="f" for="fP">Protein (g)<input id="fP" type="number" inputmode="decimal" min="0" max="300" step="0.1" placeholder="optional"></label>
+      <label class="f" for="fC">Carbs (g)<input id="fC" type="number" inputmode="decimal" min="0" max="500" step="0.1" placeholder="optional"></label>
+      <label class="f" for="fF">Fat (g)<input id="fF" type="number" inputmode="decimal" min="0" max="300" step="0.1" placeholder="optional"></label></div>` : ""}
     <p class="small muted">It's saved under “Your foods”, so next time it's one tap, or just say its name.</p>`,
     onSubmit: f => {
       const n = f.fName.value.trim(), k = Math.round(+f.fKcal.value);
       if(!n || !(k >= 0)) return false;
-      withUndo(() => addFood(n, k, true)); renderFood(); renderToday(); renderHeader();
+      const num = id => { const el = f.querySelector("#" + id); return el && el.value !== "" ? +el.value : null; };
+      const m = num("fP") != null ? {p:num("fP"), c:num("fC"), f:num("fF")} : null;
+      withUndo(() => addFood(n, k, true, m)); renderFood(); renderToday(); renderHeader();
       toast(`Added ${n} · ${leftLine()}`, {undo:true});
     }});
   if(name) setTimeout(() => { const k = $("#fKcal"); if(k) k.focus(); }, 100);
@@ -1474,7 +1947,8 @@ function activitySheet(){
 function settingsSheet(){
   const st = S.settings, th = st.theme;
   openSheet({title:"Settings", kind:"settings", body:`
-    <div><span class="eyebrow">Appearance</span>
+    ${proSettingsBlock()}
+    <div class="setgroup"><span class="eyebrow">Appearance</span>
       <div class="seg" role="group" aria-label="Theme" style="margin-top:8px">${["system","light","dark"].map(x=>`<button type="button" data-action="theme" data-v="${x}" aria-pressed="${th===x}">${cap(x)}</button>`).join("")}</div></div>
     <div class="setgroup"><span class="eyebrow">Voice</span>
       <div class="toggle"><label for="optReplies">Speak replies out loud<small>After you give a voice command</small></label><input type="checkbox" class="switch" id="optReplies" data-setting="voiceReplies" ${st.voiceReplies?"checked":""}></div>
@@ -1536,6 +2010,7 @@ const HELP = [
   ["Workouts", ["Start today's workout", "Start HIIT", "During a workout: pause, resume, skip, finish", "I walked for 30 minutes"]],
   ["Weight", ["My weight is 78.5", "I weigh 172 pounds", "Set my goal weight to 65"]],
   ["Questions", ["How am I doing?", "How many calories are left?", "What's my streak?"]],
+  ["Pro", ["What's for lunch?", "Log my lunch", "How much protein have I had?", "Show my grocery list"]],
   ["App", ["Go to food", "Dark mode", "Undo"]]
 ];
 function helpSheet(){
@@ -1777,11 +2252,13 @@ const QUESTION = /^(how|what|whats|why|when|where|which|who|tell me|give me|show
 const info = msg => ({msg, info:true});
 function interpret(t, src){
   if(!t) return null;
-  if(/^(help|commands|what can (i|you) (say|do)|what do i say|how does (this|it|voice) work|(show )?(me )?(the |all )?commands)\b/.test(t)) return {msg:"Here's what you can say.", then:helpSheet, quiet:true};
+  if(/^(help|commands|what can (i|you) (say|do)|what do i say|how does (this|it|voice) work|(show )?(me )?(the |all )?commands)\b/.test(t)) return {msg:"Here's what you can say.", next:helpSheet, quiet:true};
   if(/^(undo|undo that|undo it|undo last|cancel that|take that back|oops)$/.test(t)) return doUndo();
   let r;
   if(T && (r = timerCmd(t))) return r;
   if((r = themeCmd(t))) return r;
+  if((r = proCmd(t))) return r;
+  if((r = planCmd(t))) return r;
   if((r = statusCmd(t))) return r;
   if(QUESTION.test(t)) return null;
   for(const fn of [navCmd, weightCmd, waterCmd, startCmd, activityCmd, counterCmd, foodCmd]){ r = fn(t, src); if(r) return r; }
@@ -1808,11 +2285,17 @@ function summaryText(){
 }
 function statusCmd(t){
   if(/\b(calorie|calories|kcal)\b.*\btarget\b|\btarget\b.*\b(calorie|calories|kcal)\b/.test(t) && /\b(set|change|make|update|lower|raise)\b/.test(t))
-    return {msg:"Your calorie target comes from your details. You can change them here.", soft:true, then:profileSheet};
+    return {msg:"Your calorie target comes from your details. You can change them here.", soft:true, next:profileSheet};
   if(!(QUESTION.test(t) || /\b(left|remaining|so far|streak|summary|status|report)\b/.test(t))) return null;
   const d = day(), tg = targets(), eaten = sum(d.food, f => f.kcal), left = tg.target - eaten;
   if(/\bstreak\b/.test(t)){ const s = streak(); return info(s ? `You're on a ${s}-day streak. Keep it going!` : "No streak yet. Log anything today to start one."); }
   if(/\bwater\b/.test(t)) return info(`${plural(d.water, "glass", "glasses")} of water today, out of ${CONFIG.waterGoal}.`);
+  if(/\b(protein|macros|carbs|carbohydrates)\b|\bhow much fat\b/.test(t)){
+    if(!isPro()) return {msg:"Protein, carbs and fat tracking is part of Lean Daily Pro.", soft:true, next:() => proSheet()};
+    const m = macroTotals(d);
+    if(/\bprotein\b/.test(t) && !/\b(macros|carbs|carbohydrates|fat)\b/.test(t)) return info(`${Math.round(m.p)} g of protein today, out of ${tg.protein} g.${m.p < tg.protein ? ` ${Math.round(tg.protein - m.p)} g to go.` : " Goal reached!"}`);
+    return info(`Today: ${Math.round(m.p)} g protein, ${Math.round(m.c)} g carbs and ${Math.round(m.f)} g fat. Your goals are ${tg.protein}, ${tg.carbs} and ${tg.fat} g.`);
+  }
   if(/\bwhat\b.*\b(eat|ate|eaten|had)\b|\bfood log\b/.test(t))
     return info(d.food.length ? `Today: ${listJoin(d.food.map(f => f.name.toLowerCase()))}. ${fmt(eaten)} kcal in total.` : "Nothing logged yet today.");
   if(/\b(calorie|calories|kcal|cals|budget|eat|eaten|food)\b/.test(t))
@@ -1829,9 +2312,9 @@ function navCmd(t){
   const m = t.match(/^(go to|goto|open|show|show me|switch to|take me to|view|see|bring up|navigate to)( the| my)? (.+)$/) || (/^(today|home|counter|workouts|food|progress|settings)$/.test(t) ? [0, 0, 0, t] : null);
   if(!m) return null;
   const x = m[3];
-  if(/\bsettings?\b/.test(x)) return {msg:"Opened settings.", then:settingsSheet, quiet:true};
-  if(/\b(siri|shortcuts?)\b/.test(x)) return {msg:"Here's how to use Siri.", then:siriSheet, quiet:true};
-  if(/\b(help|commands)\b/.test(x)) return {msg:"Here's what you can say.", then:helpSheet, quiet:true};
+  if(/\bsettings?\b/.test(x)) return {msg:"Opened settings.", next:settingsSheet, quiet:true};
+  if(/\b(siri|shortcuts?)\b/.test(x)) return {msg:"Here's how to use Siri.", next:siriSheet, quiet:true};
+  if(/\b(help|commands)\b/.test(x)) return {msg:"Here's what you can say.", next:helpSheet, quiet:true};
   const tab = /^(today|home|dashboard|main|summary)\b/.test(x) ? "today"
     : /\b(counter|rep counter|tasbeeh|tasbih|reps|counting)\b/.test(x) ? "counter"
     : /\b(workouts?|exercises?|training|plans?|timer)\b/.test(x) ? "workouts"
@@ -1964,7 +2447,7 @@ function counterCmd(t){
   const remove = /\b(remove|delete|minus|subtract|take away|take off)\b/.test(t);
   let m = t.match(/^(add|new|create|make)( a| an)?( new)? counter(?: (?:for|called|named))?(?: (.+))?$/);
   if(m){
-    if(!m[4]) return {msg:"Name your new counter.", then:() => { location.hash = "#counter"; counterSheet(false); }, quiet:true};
+    if(!m[4]) return {msg:"Name your new counter.", next:() => { location.hash = "#counter"; counterSheet(false); }, quiet:true};
     const name = cap(m[4].slice(0, 30)), id = "c" + Date.now().toString(36);
     S.counters.push({id, name, target: /tasb|dhikr|zikr/.test(m[4]) ? 33 : 20, count:0, day:todayKey()}); S.active = id; save(); renderCounter();
     return {msg:`Added a counter for ${name}.`, tab:"counter", go:true};
@@ -2023,12 +2506,12 @@ function counterCmd(t){
 }
 let foodIdx = null, foodIdxKey = null;
 function foodIndex(){
-  const key = S.myFoods.map(f => f.name + ":" + f.kcal).join("|");
+  const key = S.myFoods.map(f => f.name + ":" + f.kcal + ":" + f.p).join("|");
   if(foodIdx && foodIdxKey === key) return foodIdx;
   const arr = [];
   S.myFoods.forEach(f => {
     const k = normalize(f.name); if(!k) return;
-    const food = {name:f.name, kcal:f.kcal, mine:true};
+    const food = {name:f.name, kcal:f.kcal, mine:true, p:f.p, c:f.c, f:f.f};
     arr.push({k, food}); if(!k.endsWith("s")) arr.push({k: k + "s", food});
   });
   FOODS.forEach(f => f.keys.forEach(k => arr.push({k, food:f})));
@@ -2092,7 +2575,7 @@ function findFoods(t){
 function addFoodItem({food, servings}){
   const s = Math.min(20, Math.max(0.25, Math.round(servings * 4) / 4));
   const kcal = Math.round(food.kcal * s);
-  addFood(s === 1 ? food.name : `${food.name} ×${fmtQ(s)}`, kcal, !!food.mine);
+  addFood(s === 1 ? food.name : `${food.name} ×${fmtQ(s)}`, kcal, !!food.mine && s === 1, macrosOf(food, s));
   return `${s === 1 ? food.name.toLowerCase() : `${fmtQ(s)} × ${food.name.toLowerCase()}`} (${kcal} kcal)`;
 }
 const FOOD_FILLERS = new Set("i ive im just ate eat eaten eating had have having add added log logged track record for breakfast lunch dinner supper snack snacked on a an the some of with about around roughly approximately approx calories calorie kcal kcals cal cals that was is it today my me and food to drank drink in total worth which piece plate bowl cup serving portion".split(" "));
@@ -2112,10 +2595,11 @@ function foodCmd(t){
   if(kc){
     const kcal = Math.round(+kc[1]);
     if(kcal < 1 || kcal > 5000) return {fail:true, msg:"That calorie number looks off. Try “shawarma 450 calories”."};
-    let name = cleanFoodName(t.replace(kc[0], " "));
+    const pm = t.match(/(\d+(?:\.\d+)?) ?(?:g|gm|grams?) (?:of )?protein\b/) || t.match(/\bprotein (?:is |of )?(\d+(?:\.\d+)?)\b/);
+    let name = cleanFoodName(t.replace(kc[0], " ").replace(pm ? pm[0] : "\u0000", " ").replace(/\bprotein\b/g, " "));
     if(!name && items.length === 1) name = items[0].food.name;
     const nice = name ? cap(name) : "Quick add";
-    addFood(nice, kcal, !!name); renderFood(); renderToday(); renderHeader();
+    addFood(nice, kcal, !!name, pm ? {p:+pm[1]} : null); renderFood(); renderToday(); renderHeader();
     return {msg:`Logged ${nice}, ${kcal} kcal. ${leftLine()}`, tab:"food"};
   }
   if(items.length){
@@ -2126,7 +2610,7 @@ function foodCmd(t){
   if(/\b(ate|eat|eaten|eating|had|have|having|log|add|drank|drink|snacked)\b/.test(t)){
     const name = items.unknown[0] || cleanFoodName(t);
     if(name && !/\d/.test(name) && name.split(" ").length <= 5)
-      return {msg:`I don't know the calories in ${name}. Add them here, or say “${name} 300 calories”.`, soft:true, then:() => customFoodSheet(cap(name))};
+      return {msg:`I don't know the calories in ${name}. Add them here, or say “${name} 300 calories”.`, soft:true, next:() => customFoodSheet(cap(name))};
   }
   return null;
 }
@@ -2151,7 +2635,7 @@ function presentResult(res, src){
   if(res.tab && (res.go || src === "siri")) location.hash = "#" + res.tab;
   if(res.focus) setTimeout(() => { const el = $(res.focus); if(el){ el.focus(); el.scrollIntoView({block:"center", behavior:"smooth"}); } }, 300);
   if(!res.quiet) say(res.msg);
-  if(res.then){ res.then(); return; }
+  if(res.next){ res.next(); return; }
   if(T || res.go){ if(inVoice) closeSheet(); return; }
   if(src === "siri"){ openVoice({listen:false, result:res}); return; }
   if(inVoice){
@@ -2165,14 +2649,19 @@ function presentResult(res, src){
   } else toast(res.msg, {undo:res.undoable, ms:(res.info || res.fail) ? 6000 : undefined});
 }
 
-function copyText(v){
+function shareText(text){
+  if(navigator.share){ navigator.share({text}).catch(() => {}); return; }
+  copyText(text, "List copied");
+}
+function keepScroll(fn){ const sh = $("#sheet"), st = sh.scrollTop; fn(); sh.scrollTop = st; }
+function copyText(v, label = "Link copied"){
   const fallback = () => {
     const ta = document.createElement("textarea"); ta.value = v; ta.setAttribute("readonly", ""); ta.style.cssText = "position:fixed;opacity:0;top:0";
     document.body.appendChild(ta); ta.select(); let ok = false;
     try{ ok = document.execCommand("copy"); }catch(e){}
-    ta.remove(); toast(ok ? "Link copied" : v, {ms: ok ? 2000 : 9000});
+    ta.remove(); toast(ok ? label : v, {ms: ok ? 2000 : 9000});
   };
-  try{ navigator.clipboard.writeText(v).then(() => toast("Link copied"), fallback); }catch(e){ fallback(); }
+  try{ navigator.clipboard.writeText(v).then(() => toast(label), fallback); }catch(e){ fallback(); }
 }
 
 /* ---------- events ---------- */
@@ -2203,8 +2692,8 @@ document.addEventListener("click", e => {
     case "tHands": if(hands && hands.mode === "timer") stopHandsFree(); else startHandsFree("timer"); break;
     case "delWorkout": { const d = day(), i = +el.dataset.i, w = d.workouts[i]; if(!w) break; withUndo(() => { d.workouts.splice(i,1); save(); }); renderAll(); toast(`Removed ${w.name}`, {undo:true}); break; }
     case "addWorkout": activitySheet(); break;
-    case "quickFood": { const f = FOODS[+el.dataset.i]; if(!f) break; withUndo(() => addFood(f.name, f.kcal, false)); renderFood(); renderToday(); renderHeader(); toast(`Added ${f.name} · ${leftLine()}`, {undo:true}); break; }
-    case "myFood": { const f = S.myFoods[+el.dataset.i]; if(!f) break; withUndo(() => addFood(f.name, f.kcal, true)); renderFood(); renderToday(); renderHeader(); toast(`Added ${f.name} · ${leftLine()}`, {undo:true}); break; }
+    case "quickFood": { const f = FOODS[+el.dataset.i]; if(!f) break; withUndo(() => addFood(f.name, f.kcal, false, macrosOf(f))); renderFood(); renderToday(); renderHeader(); toast(`Added ${f.name} · ${leftLine()}`, {undo:true}); break; }
+    case "myFood": { const f = S.myFoods[+el.dataset.i]; if(!f) break; withUndo(() => addFood(f.name, f.kcal, true, macrosOf(f))); renderFood(); renderToday(); renderHeader(); toast(`Added ${f.name} · ${leftLine()}`, {undo:true}); break; }
     case "delFood": { const d = day(), i = +el.dataset.i, f = d.food[i]; if(!f) break; withUndo(() => { d.food.splice(i,1); save(); }); renderFood(); renderToday(); renderHeader(); toast(`Removed ${f.name}`, {undo:true}); break; }
     case "addFood": customFoodSheet(); break;
     case "moreFoods": foodsOpen = !foodsOpen; el.textContent = foodsOpen ? "Show fewer" : `Show all ${FOODS.length} foods`; filterFoods(($("#foodSearch")||{}).value); break;
@@ -2232,6 +2721,16 @@ document.addEventListener("click", e => {
     case "wipe": openSheet({title:"Reset all data?", submitLabel:"Delete everything", body:`<p>This deletes your food log, workouts, counters and weight history on this device. It can't be undone.</p>`,
         onSubmit: () => { S = DEFAULT_STATE(); S.counters.forEach(c => { c.day = todayKey(); }); lastUndo = null; save(); applyTheme(); renderAll(); toast("All data reset"); }}); break;
     case "closeSheet": closeSheet(); break;
+    case "pro": proSheet(); break;
+    case "proPick": proPick = el.dataset.v; keepScroll(() => proSheet()); break;
+    case "planOpen": planSheet(); break;
+    case "planDay": keepScroll(() => planSheet(+el.dataset.v)); break;
+    case "planDiet": S.settings.diet = el.dataset.v; S.mealPlan = makePlan(el.dataset.v); save(); keepScroll(() => planSheet()); renderToday(); renderFood(); break;
+    case "planNew": S.mealPlan = makePlan(S.settings.diet || "all"); save(); keepScroll(() => planSheet()); renderToday(); renderFood(); toast("New meal plan made."); break;
+    case "planLog": { const slot = el.dataset.slot; withUndo(() => logPlannedMeal(slot, +el.dataset.day)); renderFood(); renderToday(); renderHeader(); if(sheetKind === "plan") keepScroll(() => planSheet()); toast(`Logged ${SLOT_NAMES[slot].toLowerCase()} · ${leftLine()}`, {undo:true}); break; }
+    case "planSwap": swapMeal(+el.dataset.day, el.dataset.slot); keepScroll(() => planSheet(+el.dataset.day)); renderToday(); renderFood(); break;
+    case "grocery": grocerySheet(); break;
+    case "groceryShare": shareText(groceryText()); break;
     case "applyUpdate": applyUpdate(); break;
     case "laterUpdate": skippedUpdate = pendingUpdate; hideUpdate(); break;
   }
@@ -2244,6 +2743,17 @@ document.addEventListener("submit", e => {
     const kg = Math.round(parseFloat($("#wIn").value)*10)/10; if(!(kg >= 30 && kg <= 300)) return;
     withUndo(() => logWeight(kg)); renderAll(); toast(`Saved ${kg} kg`, {undo:true}); return;
   }
+  if(f.id === "codeForm"){
+    const inp = $("#proCode"), v = inp.value.trim(), btn = f.querySelector("button"), er = $("#codeErr");
+    if(!v) return;
+    btn.disabled = true;
+    applyCode(v).then(r => {
+      btn.disabled = false;
+      if(r.error){ if(er){ er.textContent = r.error; er.hidden = false; } }
+      else proWelcome(r);
+    });
+    return;
+  }
   if(f.id === "cmdForm"){
     const inp = $("#cmdIn"), v = inp.value.trim(); if(!v) return;
     inp.value = ""; inp.blur(); stopRec(); setVText(v);
@@ -2251,6 +2761,8 @@ document.addEventListener("submit", e => {
   }
 });
 document.addEventListener("change", e => {
+  const g = e.target.dataset && e.target.dataset.grocery;
+  if(g && S.mealPlan){ (S.mealPlan.got ||= {})[g] = e.target.checked; save(); e.target.closest(".gitem").classList.toggle("got", e.target.checked); return; }
   const s = e.target.dataset && e.target.dataset.setting; if(!s) return;
   S.settings[s] = e.target.checked; save();
   $$(`[data-setting="${s}"]`).forEach(x => { x.checked = S.settings[s]; });
@@ -2304,9 +2816,14 @@ document.addEventListener("visibilitychange", () => {
 // Siri / Shortcuts / links: ?cmd=add+a+glass+of+water runs a command when the app opens.
 function handleLaunch(){
   const sp = new URLSearchParams(location.search);
-  const cmd = sp.get("cmd") || sp.get("q");
-  if(!cmd && !sp.has("voice")) return;
+  const cmd = sp.get("cmd") || sp.get("q"), pro = sp.get("pro");
+  if(!cmd && !pro && !sp.has("voice")) return;
   try{ history.replaceState(null, "", location.pathname + location.hash); }catch(e){}
+  if(pro){
+    if(pro === "thanks") proThanksSheet();
+    else applyCode(pro).then(r => r.error ? proSheet({error:r.error}) : proWelcome(r));
+    return;
+  }
   if(cmd) presentResult(runCommand(cmd.slice(0, 300), "siri"), "siri");
   else openVoice({listen:false});
 }
@@ -2362,7 +2879,7 @@ document.addEventListener("visibilitychange", () => { if(document.visibilityStat
 window.addEventListener("online", () => checkForUpdate());
 window.addEventListener("pageshow", e => { if(e.persisted) checkForUpdate(true); });
 
-load(); applyTheme(); shownDay = todayKey(); renderAll(); route(); handleLaunch();
+load(); applyTheme(); shownDay = todayKey(); renderAll(); route(); loadPro().finally(handleLaunch);
 window.leanDaily = {run: text => { const r = runCommand(text, "typed"); presentResult(r, "typed"); return r; }};
 </script>
 </body>

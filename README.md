@@ -36,6 +36,28 @@ Then say "Hey Siri, Lean Daily" and tell it what to log. The app has the same st
 
 Siri opens the link in Safari. iPhone keeps Safari's data separate from Home Screen apps, so if you log with Siri, use Lean Daily in Safari. Settings › Copy backup / Restore backup moves your data between them.
 
+## Lean Daily Pro
+
+Everything above stays free. Pro adds:
+
+- **A personal 7-day meal plan** of desi food that fits each person's calorie target, with Everything, Veg + eggs or Vegetarian options. You can swap any meal, log a whole meal in one tap (or say "log my lunch"), and get a grocery list for the week.
+- **Protein, carbs and fat** for every food, with a daily protein goal.
+
+Pro is sold monthly or yearly. Each purchase gets an unlock code that works until a set date, so people renew to keep it.
+
+### Selling Pro
+
+1. On your phone, open [codes.html](https://sehreen22khan.github.io/Lean-Daily/codes.html) (the code maker) and tap **Create my key**.
+2. Copy your **secret key** and save it somewhere private, like a password manager. Anyone who has it can make codes, so never share it. If Safari clears the page, restore from this backup.
+3. Copy your **public key** into `CONFIG.pro.keys` in `index.html`, or send it to Claude. It's safe to share. The code maker then shows "The app trusts this key".
+4. In `CONFIG.pro`, set your currency, monthly and yearly prices, WhatsApp number, and card payment links.
+5. When someone pays, open the code maker, enter their name, pick 1 month or 1 year, and tap **Make code**. Send the message it writes on WhatsApp. The link unlocks Pro in one tap. The code in the message is for iPhone Home Screen users, who paste it in Settings.
+6. The **Customers** list shows whose Pro ends soon, with **Remind** and **Renew** buttons. Renewals start the day after the old code ends.
+
+**Card payments:** make a monthly and a yearly payment link in Stripe, Lemon Squeezy or Gumroad, and set the page people see after paying to `https://sehreen22khan.github.io/Lean-Daily/?pro=thanks`. That page asks them to send their receipt on WhatsApp, and you reply with a code. Lemon Squeezy and Gumroad handle sales tax and VAT for you; with Stripe that's your job.
+
+**What codes can and can't do:** codes can't be made up or edited, and each one shows the buyer's name in the app, which discourages sharing. The app has no server, though, so someone technical could change their own copy to skip the check. Unlocking automatically after a card payment would need a small server, for example a free Cloudflare Worker that receives the payment notice and emails a code.
+
 ## Updates
 
 When a new version is published, the open app shows an **Update available** card. Tap **Update** to load it. This matters for the Home Screen app on iPhone, which has no reload button. The card never interrupts a running workout.
@@ -44,4 +66,4 @@ After the first visit the app also works offline.
 
 ## Editing
 
-Change the `CONFIG` block at the top of the script in `index.html`: app name, WhatsApp channel and group links, daily water goal, and daily active-minutes goal. Commit to `main` and GitHub Pages publishes it in a minute or two. People using the app then see the update card.
+Change the `CONFIG` block at the top of the script in `index.html`: app name, WhatsApp channel and group links, daily water goal, daily active-minutes goal, and the `pro` settings (see Selling Pro). Commit to `main` and GitHub Pages publishes it in a minute or two. People using the app then see the update card.

@@ -1,7 +1,7 @@
 /* Lean Daily service worker.
    Pages always come from the network when online (so updates show up), with a saved copy for offline use.
    Icons, fonts and the manifest are served from the saved copy and refreshed in the background. */
-const CACHE = "lean-daily-v1";
+const CACHE = "lean-daily-v2";
 const CORE = ["./", "./manifest.webmanifest", "./icons/icon.svg", "./icons/icon-192.png", "./icons/icon-512.png", "./icons/apple-touch-icon.png"];
 
 self.addEventListener("install", e => {
@@ -21,19 +21,22 @@ self.addEventListener("fetch", e => {
   if (req.method !== "GET") return;
   const url = new URL(req.url);
 
-  // The app page: network first, saved copy when offline.
+  // Pages: network first, saved copy when offline. Only the app page itself is saved as "./",
+  // so opening another page (like codes.html) never replaces the app's offline copy.
   if (req.mode === "navigate") {
+    const appPath = new URL("./", self.location).pathname;
+    const isApp = url.origin === self.location.origin && (url.pathname === appPath || url.pathname === appPath + "index.html");
     e.respondWith((async () => {
       try {
         const res = await fetch(req);
         if (res.ok && url.origin === self.location.origin) {
           const copy = res.clone();
-          e.waitUntil(caches.open(CACHE).then(c => c.put("./", copy)));
+          e.waitUntil(caches.open(CACHE).then(c => c.put(isApp ? "./" : new Request(url.origin + url.pathname), copy)));
         }
         return res;
       } catch (err) {
         const c = await caches.open(CACHE);
-        return (await c.match("./")) || (await c.match(req)) || Response.error();
+        return (isApp && await c.match("./")) || (await c.match(new Request(url.origin + url.pathname))) || Response.error();
       }
     })());
     return;
