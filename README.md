@@ -50,7 +50,7 @@ Pro is sold monthly or yearly. Each purchase gets an unlock code that works unti
 1. On your phone, open [codes.html](https://sehreen22khan.github.io/Lean-Daily/codes.html) (the code maker) and tap **Create my key**.
 2. Copy your **secret key** and save it somewhere private, like a password manager. Anyone who has it can make codes, so never share it. If Safari clears the page, restore from this backup.
 3. Copy your **public key** into `CONFIG.pro.keys` in `index.html`, or send it to Claude. It's safe to share. The code maker then shows "The app trusts this key".
-4. In `CONFIG.pro`, set your currency, monthly and yearly prices, WhatsApp number, and card payment links.
+4. In `CONFIG.pro`, set your currency, monthly and yearly prices (they stay hidden while they are 0), WhatsApp number, and card payment links.
 5. When someone pays, open the code maker, enter their name, pick 1 month or 1 year, and tap **Make code**. Send the message it writes on WhatsApp. The link unlocks Pro in one tap. The code in the message is for iPhone Home Screen users, who paste it in Settings.
 6. The **Customers** list shows whose Pro ends soon, with **Remind** and **Renew** buttons. Renewals start the day after the old code ends.
 
